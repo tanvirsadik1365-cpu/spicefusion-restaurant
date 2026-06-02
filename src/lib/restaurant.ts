@@ -1,4 +1,10 @@
-const placeholderImage = "/brand/spice-fusion-hero.png";
+const feastImage = "/brand/food/spice-fusion-feast.jpg";
+const curryImage = "/brand/food/spice-fusion-curry.jpg";
+const tandooriImage = "/brand/food/spice-fusion-tandoori-grill.jpg";
+const biryaniImage = "/brand/food/spice-fusion-biryani.jpg";
+const naanRiceImage = "/brand/food/spice-fusion-naan-rice.jpg";
+const startersImage = "/brand/food/spice-fusion-starters.jpg";
+const storefrontImage = "/brand/food/spice-fusion-storefront.jpg";
 const brandLogo = "/brand/spice-fusion-logo.png";
 const brandIcon = "/brand/spice-fusion-icon.png";
 
@@ -62,31 +68,31 @@ export const navLinks = [
 ];
 
 export const menuFoodImages = {
-  appetisers: placeholderImage,
-  tandoori: placeholderImage,
-  biryani: placeholderImage,
-  curry: placeholderImage,
-  naan: placeholderImage,
-  rice: placeholderImage,
+  appetisers: startersImage,
+  tandoori: tandooriImage,
+  biryani: biryaniImage,
+  curry: curryImage,
+  naan: naanRiceImage,
+  rice: naanRiceImage,
 };
 
 export const foodImages = {
-  hero: placeholderImage,
+  hero: feastImage,
   curry: menuFoodImages.curry,
   biryani: menuFoodImages.biryani,
   tandoori: menuFoodImages.tandoori,
   naan: menuFoodImages.naan,
   rice: menuFoodImages.rice,
   restaurant: brandLogo,
-  exterior: placeholderImage,
+  exterior: storefrontImage,
   sign: brandLogo,
-  bar: placeholderImage,
-  diningRoom: placeholderImage,
+  bar: feastImage,
+  diningRoom: storefrontImage,
   starters: menuFoodImages.appetisers,
   mainDishes: menuFoodImages.curry,
-  vegetable: placeholderImage,
-  sundries: placeholderImage,
-  lambBalti: placeholderImage,
+  vegetable: curryImage,
+  sundries: naanRiceImage,
+  lambBalti: curryImage,
   hygiene: brandIcon,
   halal: brandIcon,
 };
@@ -97,8 +103,8 @@ export const trustImages = { securePayments: "/trust/secure-payments.svg" };
 
 export const aboutImages = [
   { src: brandLogo, alt: "Spice Fusion logo" },
-  { src: placeholderImage, alt: "Spice Fusion takeaway dishes" },
-  { src: placeholderImage, alt: "Freshly cooked curries and tandoori" },
+  { src: feastImage, alt: "Spice Fusion takeaway feast with curry, biryani and naan" },
+  { src: tandooriImage, alt: "Freshly cooked tandoori mixed grill" },
   { src: brandIcon, alt: "Spice Fusion icon" },
 ];
 
@@ -151,21 +157,21 @@ export const featuredDishes = [
     description: "King prawns, prawns and fish cooked with onions and capsicum in special balti sauce.",
     price: "10.95",
     badge: "Signature",
-    image: placeholderImage,
+    image: curryImage,
   },
   {
     name: "Tandoori Mixed Grill",
     description: "Seekh kebab, quarter tandoori chicken, chicken tikka and lamb tikka.",
     price: "9.95",
     badge: "Popular",
-    image: placeholderImage,
+    image: tandooriImage,
   },
   {
     name: "Spice Fusion Special Biryani",
     description: "Lamb tikka, chicken tikka, prawn and mushrooms cooked together.",
     price: "10.95",
     badge: "House Special",
-    image: placeholderImage,
+    image: biryaniImage,
   },
 ];
 
@@ -187,7 +193,7 @@ export const menuSections: MenuSection[] = [
     id: "appetisers",
     title: "Appetisers",
     description: "Served with salad and mint sauce.",
-    image: placeholderImage,
+    image: startersImage,
     items: [
       { name: "Lamb Chops (3 pieces)", price: "6.50" },
       { name: "Seekh Kebab (2 pieces)", price: "3.80" },
@@ -222,7 +228,7 @@ export const menuSections: MenuSection[] = [
     id: "tandoori-delicacies",
     title: "Spice Fusion Tandoori Delicacies",
     description: "Marinated overnight then roasted in clay oven on skewers.",
-    image: placeholderImage,
+    image: tandooriImage,
     items: [
       { name: "Lamb Chops Main (6 pieces)", price: "10.95" },
       { name: "Chicken Tikka", price: "7.95" },
@@ -241,7 +247,7 @@ export const menuSections: MenuSection[] = [
     id: "signature-dishes",
     title: "Spice Fusion Signature Dishes",
     description: "House signature curries from medium to very hot.",
-    image: placeholderImage,
+    image: curryImage,
     items: [
       { name: "Chicken Tikka Shatkora", price: "7.95" },
       { name: "Lamb Tikka Shatkora", price: "9.95" },
@@ -258,7 +264,7 @@ export const menuSections: MenuSection[] = [
     id: "house-specialities",
     title: "House Specialities",
     description: "Choose style: Balti, Jalfrazi, Karahi, Achari, Saag, Bombay.",
-    image: placeholderImage,
+    image: curryImage,
     items: [
       { name: "V Mix Vegetables", price: "6.95" },
       { name: "Chicken", price: "7.50" },
@@ -275,7 +281,7 @@ export const menuSections: MenuSection[] = [
     id: "biryani",
     title: "Biryani",
     description: "Served with vegetable curry sauce.",
-    image: placeholderImage,
+    image: biryaniImage,
     items: [
       { name: "V Vegetable Biryani", price: "6.95" },
       { name: "Chicken Biryani", price: "7.95" },
@@ -292,7 +298,7 @@ export const menuSections: MenuSection[] = [
     id: "chefs-specialities",
     title: "Chef's Specialities",
     description: "Rich chef-crafted dishes from mild to very hot.",
-    image: placeholderImage,
+    image: curryImage,
     items: [
       { name: "Chicken Muglai Jalfrazi", price: "8.50" },
       { name: "Lamb Muglai Jalfrazi", price: "9.95" },
@@ -329,7 +335,7 @@ export const menuSections: MenuSection[] = [
     id: "traditional-curries",
     title: "Traditional Curry Dishes",
     description: "Korma, Dhansak, Bhuna, Rogan Josh, Dupiaza, Pathia, Madras, Vindaloo.",
-    image: placeholderImage,
+    image: curryImage,
     items: [
       { name: "V Mix Vegetable", price: "6.95" },
       { name: "Chicken", price: "7.50" },
@@ -346,7 +352,7 @@ export const menuSections: MenuSection[] = [
     id: "vegetarian",
     title: "Vegetarian Dishes",
     description: "Vegetarian mains and side options.",
-    image: placeholderImage,
+    image: curryImage,
     items: [
       { name: "Shabzi Chot Poti", price: "6.95" },
       { name: "Vegetable Zafrani (mild)", price: "6.95" },
@@ -369,7 +375,7 @@ export const menuSections: MenuSection[] = [
     id: "rice-accompaniments",
     title: "Rice Accompaniments",
     description: "Rice sides and flavoured rice options.",
-    image: placeholderImage,
+    image: naanRiceImage,
     items: [
       { name: "Pilau Rice", price: "2.80" },
       { name: "Boiled Rice", price: "2.70" },
@@ -390,7 +396,7 @@ export const menuSections: MenuSection[] = [
     id: "breads",
     title: "Breads",
     description: "Fresh naan, roti, paratha and puree.",
-    image: placeholderImage,
+    image: naanRiceImage,
     items: [
       { name: "Plain Naan", price: "2.60" },
       { name: "Garlic Naan", price: "2.60" },
@@ -410,7 +416,7 @@ export const menuSections: MenuSection[] = [
     id: "sundries-snacks-drinks",
     title: "Sundries, Snacks, Drinks & Set Meals",
     description: "Sides, wraps, drinks, meal deals and set menus.",
-    image: placeholderImage,
+    image: naanRiceImage,
     items: [
       { name: "Chips", price: "2.50" },
       { name: "Spicy Chips", price: "2.70" },
@@ -468,11 +474,51 @@ export const galleryImages: GalleryImageData[] = [
     title: "Signature Dishes",
     chapter: "Menu",
     caption: "Explore tandoori, signature dishes and biryani.",
-    src: placeholderImage,
+    src: feastImage,
     alt: "Spice Fusion signature dishes",
     mood: "Food",
     category: "Food",
     href: "/menu",
+  },
+  {
+    title: "Tandoori Mixed Grill",
+    chapter: "Menu",
+    caption: "Chicken tikka, seekh kebab, lamb tikka and tandoori chicken.",
+    src: tandooriImage,
+    alt: "Spice Fusion tandoori mixed grill platter",
+    mood: "Smoky",
+    category: "Food",
+    href: "/menu",
+  },
+  {
+    title: "Biryani",
+    chapter: "Menu",
+    caption: "Golden basmati biryani served with curry sauce.",
+    src: biryaniImage,
+    alt: "Spice Fusion biryani dish",
+    mood: "Comfort",
+    category: "Food",
+    href: "/menu",
+  },
+  {
+    title: "Fresh Breads & Rice",
+    chapter: "Sides",
+    caption: "Garlic naan, pilau rice, poppadoms and chutneys.",
+    src: naanRiceImage,
+    alt: "Spice Fusion naan, rice and sundries",
+    mood: "Sides",
+    category: "Food",
+    href: "/menu",
+  },
+  {
+    title: "Addingham Takeaway",
+    chapter: "Location",
+    caption: "A welcoming takeaway-style storefront for local collection.",
+    src: storefrontImage,
+    alt: "Spice Fusion takeaway storefront style image",
+    mood: "Local",
+    category: "Location",
+    href: "/contact",
   },
 ];
 

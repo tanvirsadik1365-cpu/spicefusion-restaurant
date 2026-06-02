@@ -116,7 +116,7 @@ export default function Home() {
     <main className="spice-home overflow-hidden bg-[#121212] text-white">
       <style dangerouslySetInnerHTML={{ __html: homeCss }} />
 
-      <section className="spice-glow relative isolate overflow-hidden px-4 pb-12 pt-10 sm:px-6 lg:min-h-[92svh] lg:px-8">
+      <section className="spice-glow relative isolate overflow-hidden px-4 pb-10 pt-8 sm:px-6 lg:min-h-[92svh] lg:px-8 lg:pb-12 lg:pt-10">
         <Image
           src={foodImages.hero}
           alt="Spice Fusion takeaway dishes"
@@ -129,14 +129,14 @@ export default function Home() {
         <div className="absolute left-[-8rem] top-28 h-64 w-64 rounded-full bg-[#E52B2B]/30 blur-3xl" />
         <div className="absolute bottom-0 right-[-10rem] h-80 w-80 rounded-full bg-[#F4B400]/25 blur-3xl" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:min-h-[calc(92svh-6rem)] lg:grid-cols-[1.02fr_.78fr] lg:items-center">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:min-h-[calc(92svh-6rem)] lg:grid-cols-[1.02fr_.78fr] lg:items-center lg:gap-10">
           <div className="spice-reveal">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/10 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#F4B400] shadow-[0_16px_48px_rgba(0,0,0,.28)] backdrop-blur">
               <Sparkles size={15} aria-hidden="true" />
               Addingham Indian Takeaway
             </div>
 
-            <h1 className="mt-6 max-w-5xl text-[3.1rem] font-semibold leading-[0.95] tracking-[-0.04em] text-white sm:text-7xl lg:text-[6.7rem]">
+            <h1 className="mt-5 max-w-5xl text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.035em] text-white sm:mt-6 sm:text-7xl lg:text-[6.4rem]">
               Fresh spice, fast comfort, proper takeaway nights.
             </h1>
             <p className="mt-6 max-w-2xl text-base font-medium leading-8 text-white/78 sm:text-lg">
@@ -163,24 +163,24 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-9 grid max-w-2xl gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-2xl grid-cols-3 gap-2 sm:mt-9 sm:gap-3">
               {heroStats.map(([value, label]) => (
-                <div key={label} className="rounded-2xl border border-white/14 bg-white/10 p-4 backdrop-blur">
-                  <p className="text-3xl font-semibold text-[#F4B400]">{value}</p>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-wide text-white/68">{label}</p>
+                <div key={label} className="rounded-2xl border border-white/14 bg-white/10 p-3 backdrop-blur sm:p-4">
+                  <p className="text-2xl font-semibold text-[#F4B400] sm:text-3xl">{value}</p>
+                  <p className="mt-1 text-[0.66rem] font-bold uppercase leading-4 tracking-wide text-white/68 sm:text-xs">{label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <aside className="spice-reveal spice-reveal-delay relative hidden lg:block">
+          <aside className="spice-reveal spice-reveal-delay relative lg:block">
             <div className="spice-float relative overflow-hidden rounded-[2.2rem] border border-white/14 bg-white/10 p-4 shadow-[0_30px_90px_rgba(0,0,0,.38)] backdrop-blur">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.7rem]">
+              <div className="relative aspect-[16/11] overflow-hidden rounded-[1.7rem] lg:aspect-[4/5]">
                 <Image
-                  src={foodImages.hero}
-                  alt="Freshly cooked Spice Fusion takeaway food"
+                  src={foodImages.tandoori}
+                  alt="Freshly cooked Spice Fusion tandoori mixed grill"
                   fill
-                  sizes="38vw"
+                  sizes="(min-width: 1024px) 38vw, 100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/82 via-transparent to-transparent" />
@@ -201,13 +201,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#FFFFFF] px-4 py-16 text-[#121212] sm:px-6 lg:px-8 lg:py-20">
+      <section className="bg-[#FFFFFF] px-4 py-14 text-[#121212] sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.88fr_1.12fr] lg:items-center">
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-[#121212] shadow-[0_30px_90px_rgba(18,18,18,.18)]">
               <Image
-                src={foodImages.hero}
-                alt="Spice Fusion takeaway food photography"
+                src={foodImages.exterior}
+                alt="Spice Fusion takeaway storefront style image"
                 fill
                 sizes="(min-width: 1024px) 46vw, 100vw"
                 className="object-cover"
@@ -270,13 +270,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#121212] px-4 py-16 text-white sm:px-6 lg:px-8 lg:py-20">
+      <section className="bg-[#121212] px-4 py-14 text-white sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.18em] text-[#F4B400]">Popular Picks</p>
               <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
-                High-impact dishes for hungry scrolling.
+                Real menu favourites, easy to choose.
               </h2>
             </div>
             <Link href="/menu" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-black text-[#121212] transition hover:bg-[#F4B400]">
@@ -309,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#F5F5F5] px-4 py-16 text-[#121212] sm:px-6 lg:px-8">
+      <section className="bg-[#F5F5F5] px-4 py-14 text-[#121212] sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-[.78fr_1.22fr] lg:items-start">
             <div className="lg:sticky lg:top-28">
@@ -345,14 +345,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#FFFFFF] px-4 py-16 text-[#121212] sm:px-6 lg:px-8 lg:py-20">
+      <section className="bg-[#FFFFFF] px-4 py-14 text-[#121212] sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.08fr_.92fr] lg:items-stretch">
           <div className="overflow-hidden rounded-[2rem] bg-[#121212] text-white shadow-[0_30px_90px_rgba(18,18,18,.18)]">
             <div className="grid min-h-full gap-0 md:grid-cols-[.9fr_1.1fr]">
               <div className="relative min-h-[300px]">
                 <Image
-                  src={foodImages.hero}
-                  alt="Spice Fusion takeaway food image"
+                  src={foodImages.starters}
+                  alt="Spice Fusion appetisers with onion bhaji, samosa and pakora"
                   fill
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="object-cover"
@@ -403,7 +403,7 @@ export default function Home() {
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black">
                   <ShieldCheck className="text-[#E52B2B]" size={16} aria-hidden="true" />
-                  Hygiene rating 03
+                  Hygiene rating 3
                 </span>
               </div>
               <p className="mt-5 text-sm leading-7 text-[#555]">
