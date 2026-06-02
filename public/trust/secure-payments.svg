@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="344" height="168" viewBox="0 0 344 168" role="img" aria-labelledby="title desc">
+  <title id="title">Secure payments powered by Stripe</title>
+  <desc id="desc">Secure payments badge showing Stripe and accepted card brands.</desc>
+  <rect width="344" height="168" rx="8" fill="#fff"/>
+  <g fill="#050505">
+    <path d="M54 18c-14.4 0-26 11.6-26 26v10H18a6 6 0 0 0-6 6v37a6 6 0 0 0 6 6h72a6 6 0 0 0 6-6V60a6 6 0 0 0-6-6H80V44c0-14.4-11.6-26-26-26Zm0 10c8.8 0 16 7.2 16 16v10H38V44c0-8.8 7.2-16 16-16Z"/>
+    <path d="M61 72a7 7 0 1 0-13.9 0c0 2.4 1.2 4.5 3 5.8L48 91h12l-2.1-13.2a7 7 0 0 0 3.1-5.8Z" fill="#fff"/>
+  </g>
+  <text x="90" y="31" fill="#050505" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="900">Secure Payments</text>
+  <rect x="103" y="43" width="228" height="62" rx="7" fill="#050505"/>
+  <text x="122" y="81" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="800">Powered by</text>
+  <text x="232" y="82" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900">stripe</text>
+  <g>
+    <rect x="18" y="113" width="74" height="45" rx="5" fill="#f8f8f8" stroke="#d9d9d9"/>
+    <circle cx="47" cy="135.5" r="17" fill="#eb001b"/>
+    <circle cx="63" cy="135.5" r="17" fill="#f79e1b" fill-opacity=".92"/>
+    <path d="M55 121.2a17 17 0 0 1 0 28.6 17 17 0 0 1 0-28.6Z" fill="#ff5f00"/>
+    <text x="55" y="140" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="900" text-anchor="middle">MasterCard</text>
+  </g>
+  <g>
+    <rect x="96" y="113" width="75" height="45" rx="5" fill="#fbfbfb" stroke="#d9d9d9"/>
+    <text x="133.5" y="142" fill="#1a4ea0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-style="italic" font-weight="900" text-anchor="middle">VISA</text>
+    <path d="M112 128h38" stroke="#f3b229" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="176" y="113" width="75" height="45" rx="5" fill="#fbfbfb" stroke="#d9d9d9"/>
+    <text x="213.5" y="138" fill="#222" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="900" text-anchor="middle">DISCOVER</text>
+    <path d="M221 149c11-3 18-10 20-20-10 8-22 12-38 13 5 4 11 6 18 7Z" fill="#f58220"/>
+  </g>
+  <g>
+    <rect x="256" y="113" width="75" height="45" rx="5" fill="#1976bc" stroke="#d9d9d9"/>
+    <text x="293.5" y="132" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="900" text-anchor="middle">AMERICAN</text>
+    <text x="293.5" y="148" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="900" text-anchor="middle">EXPRESS</text>
+  </g>
+</svg>

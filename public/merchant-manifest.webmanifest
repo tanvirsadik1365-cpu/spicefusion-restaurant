@@ -1,0 +1,26 @@
+{
+  "id": "/merchant/orders",
+  "name": "Spice Fusion Merchant App",
+  "short_name": "Spice Fusion",
+  "description": "Merchant view for Spice Fusion TAKEAWAY online orders.",
+  "start_url": "/merchant/orders",
+  "scope": "/merchant/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#121212",
+  "theme_color": "#E52B2B",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
