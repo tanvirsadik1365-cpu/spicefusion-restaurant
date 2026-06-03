@@ -39,6 +39,7 @@ import {
   offers,
   restaurant,
 } from "@/lib/restaurant";
+import { dishSeoPages } from "@/lib/menu-seo";
 
 type MenuCategory = {
   id: string;
@@ -507,7 +508,7 @@ export function MenuOrderClient() {
         onClick={() => addItem(item)}
         disabled={!orderingAllowed}
         aria-label={`Add ${item.name}`}
-        className={`inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#E52B2B] text-sm font-black text-[#121212] shadow-[0_14px_34px_rgba(229,43,43,0.22)] transition hover:-translate-y-0.5 hover:bg-[#FFEFCB] disabled:cursor-not-allowed disabled:bg-[#F5F5F5] disabled:text-[#2F251C] disabled:shadow-none ${
+        className={`inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#E52B2B] text-sm font-black text-white shadow-[0_14px_34px_rgba(229,43,43,0.22)] transition hover:-translate-y-0.5 hover:bg-[#FFEFCB] hover:text-[#121212] disabled:cursor-not-allowed disabled:bg-[#F5F5F5] disabled:text-[#2F251C] disabled:shadow-none ${
           compact ? "min-w-[86px] px-3" : "px-4"
         }`}
       >
@@ -577,7 +578,7 @@ export function MenuOrderClient() {
                 aria-pressed={active}
                 className={`flex min-h-10 items-center justify-center rounded-full border px-4 text-sm font-black transition ${
                   active
-                    ? "border-[#E52B2B] bg-[#E52B2B] text-[#121212] shadow-md shadow-[#E52B2B]/15"
+                    ? "border-[#E52B2B] bg-[#E52B2B] text-white shadow-md shadow-[#E52B2B]/15"
                     : "border-transparent bg-white text-[#2F251C] hover:border-[#cbd5e1] hover:bg-[#F5F5F5] hover:text-[#121212]"
                 }`}
               >
@@ -627,7 +628,7 @@ export function MenuOrderClient() {
                   : "grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-lg border px-4 py-3 text-left"
               } transition ${
                 active
-                  ? "border-[#E52B2B]/90 bg-[#E52B2B] text-[#121212] shadow-[0_12px_28px_rgba(229,43,43,0.24)]"
+                  ? "border-[#E52B2B]/90 bg-[#E52B2B] text-white shadow-[0_12px_28px_rgba(229,43,43,0.24)]"
                   : compact
                     ? "border-[#cbd5e1] bg-[#ffffff] text-[#2F251C] hover:border-[#E52B2B]/45 hover:text-[#121212]"
                     : "border-[#cbd5e1] bg-[#ffffff] text-[#2F251C] hover:border-[#E52B2B]/45 hover:text-[#121212]"
@@ -818,7 +819,7 @@ export function MenuOrderClient() {
     return (
       <aside
         id="checkout"
-        className="hidden h-fit max-h-[calc(100vh-112px)] scroll-mt-[170px] flex-col overflow-hidden rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-5 text-[#121212] shadow-[0_14px_34px_rgba(18,18,18,0.1)] lg:sticky lg:top-24 lg:flex lg:scroll-mt-24"
+        className="hidden h-fit max-h-[calc(100vh-112px)] scroll-mt-[170px] flex-col overflow-hidden rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-5 text-[#121212] shadow-[0_14px_34px_rgba(18,18,18,0.1)] lg:sticky lg:top-24 lg:flex lg:scroll-mt-24"
       >
         <div className="flex items-center justify-between gap-4">
           <div>
@@ -830,7 +831,7 @@ export function MenuOrderClient() {
               {itemCount} {itemCount === 1 ? "item" : "items"} selected
             </p>
           </div>
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212] shadow-lg shadow-[#E52B2B]/20">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-white shadow-lg shadow-[#E52B2B]/20">
             <ShoppingBag size={21} aria-hidden="true" />
           </span>
         </div>
@@ -838,7 +839,7 @@ export function MenuOrderClient() {
         {orderingAllowed ? (
           <Link
             href="/cart"
-            className="mt-5 grid min-h-12 grid-cols-[1fr_auto] items-center gap-3 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] shadow-lg shadow-[#E52B2B]/20 transition hover:bg-[#FFEFCB]"
+            className="mt-5 grid min-h-12 grid-cols-[1fr_auto] items-center gap-3 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white shadow-lg shadow-[#E52B2B]/20 transition hover:bg-[#FFEFCB] hover:text-[#121212]"
           >
             <span className="inline-flex items-center gap-2">
               <ShoppingBag size={16} aria-hidden="true" />
@@ -1005,7 +1006,7 @@ export function MenuOrderClient() {
             <button
               type="button"
               onClick={openOfferPopup}
-              className="inline-flex h-9 items-center justify-center rounded-full border border-[#E52B2B] bg-[#F5F5F5] px-3 text-xs font-black uppercase tracking-wide text-[#121212] transition hover:bg-[#E52B2B]"
+              className="inline-flex h-9 items-center justify-center rounded-full border border-[#E52B2B] bg-[#F5F5F5] px-3 text-xs font-black uppercase tracking-wide text-[#121212] transition hover:bg-[#E52B2B] hover:text-white"
             >
               View popup
             </button>
@@ -1086,7 +1087,7 @@ export function MenuOrderClient() {
         {orderingAllowed ? (
           <Link
             href="/cart"
-            className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] text-sm font-black text-[#121212] shadow-lg shadow-[#E52B2B]/20 transition hover:bg-[#FFEFCB]"
+            className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] text-sm font-black text-white shadow-lg shadow-[#E52B2B]/20 transition hover:bg-[#FFEFCB] hover:text-[#121212]"
           >
             <ShoppingBag size={16} aria-hidden="true" />
             Go to Cart & Pay
@@ -1198,7 +1199,7 @@ export function MenuOrderClient() {
                 </div>
                 <Link
                   href="/cart"
-                  className="grid min-h-14 grid-cols-[1fr_auto] items-center rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] shadow-[0_16px_38px_rgba(229,43,43,0.24)]"
+                  className="grid min-h-14 grid-cols-[1fr_auto] items-center rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white shadow-[0_16px_38px_rgba(229,43,43,0.24)]"
                 >
                   <span>Checkout</span>
                   <ArrowRight size={18} aria-hidden="true" />
@@ -1212,19 +1213,19 @@ export function MenuOrderClient() {
   }
 
   return (
-    <section className="bg-[radial-gradient(circle_at_top,rgba(244,180,0,0.14),transparent_42%),#F5F5F5] px-4 pb-28 pt-6 text-[#121212] sm:px-6 sm:pt-8 lg:px-8 lg:pb-16">
+    <section className="bg-[#F5F5F5] px-4 pb-28 pt-6 text-[#121212] sm:px-6 sm:pt-8 lg:px-8 lg:pb-16">
       <div className="mx-auto max-w-[1500px]">
-        <div className="relative mb-5 overflow-hidden rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-4 shadow-[0_14px_34px_rgba(18,18,18,0.08)] sm:p-5 lg:p-6">
-          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(244,180,0,0.14),rgba(18,18,18,0.06)_48%,rgba(245,242,236,0)_100%)]" />
+        <div className="relative mb-5 overflow-hidden rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-4 shadow-[0_14px_34px_rgba(18,18,18,0.08)] sm:p-5 lg:p-6">
+          <div className="absolute inset-x-0 top-0 h-1 bg-[#E52B2B]" />
           <div className="relative z-10">
             <div className="grid gap-5">
               <div className="min-w-0">
-                <p className="inline-flex items-center gap-2 rounded-full bg-[#E52B2B] px-3 py-1.5 text-xs font-black uppercase text-[#121212]">
+                <p className="inline-flex items-center gap-2 rounded-lg bg-[#E52B2B] px-3 py-1.5 text-xs font-black uppercase text-white">
                   <Flame size={14} aria-hidden="true" />
                   Spice Fusion TAKEAWAY menu
                 </p>
                 <h1 className="mt-3 max-w-4xl text-4xl font-black leading-tight text-[#121212] sm:text-5xl">
-                  Spice Fusion Takeaway Menu in Addingham
+                  Indian Takeaway Menu in Addingham
                 </h1>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-[#2F251C] sm:text-base">
                   Explore starters, curries, biryani, tandoori grill, rice and
@@ -1233,7 +1234,7 @@ export function MenuOrderClient() {
               </div>
             </div>
 
-            <div className="mt-5 grid gap-2 rounded-xl border border-[#cbd5e1] bg-[#ffffff] p-2 shadow-[0_10px_24px_rgba(18,18,18,0.08)] min-[920px]:grid-cols-[minmax(260px,1fr)_150px_150px_minmax(270px,1fr)] min-[920px]:items-stretch">
+            <div className="mt-5 grid gap-2 rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-2 shadow-[0_10px_24px_rgba(18,18,18,0.08)] min-[920px]:grid-cols-[minmax(260px,1fr)_150px_150px_minmax(270px,1fr)] min-[920px]:items-stretch">
               <OrderMethodSelector
                 className="h-full min-h-14"
                 compact
@@ -1288,7 +1289,7 @@ export function MenuOrderClient() {
         </div>
 
         <div className="menu-order-layout">
-          <aside className="hidden h-fit rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-4 text-[#121212] shadow-[0_10px_24px_rgba(18,18,18,0.08)] lg:sticky lg:top-24 lg:block">
+          <aside className="hidden h-fit rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-4 text-[#121212] shadow-[0_10px_24px_rgba(18,18,18,0.08)] lg:sticky lg:top-24 lg:block">
             <div className="flex items-center gap-2">
               <ReceiptText className="text-[#E52B2B]" size={20} aria-hidden="true" />
               <h2 className="font-black text-[#121212]">Categories</h2>
@@ -1334,6 +1335,34 @@ export function MenuOrderClient() {
             <div className="mt-6">
               <FeaturedPicks />
             </div>
+
+            <section className="mt-6 rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-5 shadow-[0_12px_28px_rgba(18,18,18,0.08)] sm:p-6">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#E52B2B]">
+                    Popular dish guides
+                  </p>
+                  <h2 className="mt-2 text-2xl font-black">
+                    Indian takeaway favourites in Addingham
+                  </h2>
+                </div>
+                <p className="max-w-lg text-sm font-semibold leading-6 text-[#2F251C]">
+                  Read more about customer favourites, then order direct for
+                  collection or local delivery.
+                </p>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {dishSeoPages.map((dish) => (
+                  <Link
+                    key={dish.slug}
+                    href={`/menu/${dish.slug}`}
+                    className="inline-flex min-h-10 items-center rounded-full border border-[#cbd5e1] bg-[#F5F5F5] px-4 text-sm font-black text-white transition hover:border-[#E52B2B] hover:text-[#E52B2B]"
+                  >
+                    {dish.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
 
             <div
               ref={menuTopRef}
@@ -1439,7 +1468,7 @@ export function MenuOrderClient() {
                   <button
                     type="button"
                     onClick={resetMenuView}
-                    className="mt-5 inline-flex h-11 items-center justify-center rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] transition hover:bg-[#FFEFCB]"
+                    className="mt-5 inline-flex h-11 items-center justify-center rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white transition hover:bg-[#FFEFCB] hover:text-[#121212]"
                   >
                     Clear search
                   </button>
@@ -1457,7 +1486,7 @@ export function MenuOrderClient() {
           <button
             type="button"
             onClick={() => setMobileCartOpen(true)}
-            className="fixed bottom-4 left-4 right-4 z-30 grid h-14 grid-cols-[1fr_auto] items-center rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] shadow-2xl shadow-black/25 lg:hidden"
+            className="fixed bottom-4 left-4 right-4 z-30 grid h-14 grid-cols-[1fr_auto] items-center rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white shadow-2xl shadow-black/25 lg:hidden"
             aria-label="Open cart"
           >
             <span>
@@ -1471,7 +1500,7 @@ export function MenuOrderClient() {
           </button>
           <Link
             href="/cart"
-            className="fixed bottom-6 right-6 z-30 hidden min-h-14 items-center gap-4 rounded-full border border-[#E52B2B]/30 bg-[#E52B2B] px-5 text-sm font-black text-[#121212] shadow-[0_18px_46px_rgba(0,0,0,0.36)] transition hover:-translate-y-0.5 hover:bg-[#FFEFCB] lg:left-1/2 lg:right-auto lg:flex lg:-translate-x-1/2"
+            className="fixed bottom-6 right-6 z-30 hidden min-h-14 items-center gap-4 rounded-full border border-[#E52B2B]/30 bg-[#E52B2B] px-5 text-sm font-black text-white shadow-[0_18px_46px_rgba(0,0,0,0.36)] transition hover:-translate-y-0.5 hover:bg-[#FFEFCB] hover:text-[#121212] lg:left-1/2 lg:right-auto lg:flex lg:-translate-x-1/2"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#121212]/12">
               <ShoppingBag size={17} aria-hidden="true" />
@@ -1497,7 +1526,7 @@ export function MenuOrderClient() {
           >
             <div className="absolute inset-x-0 top-0 h-1 bg-[#E52B2B]" />
             <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-white">
                 <Sparkles size={19} aria-hidden="true" />
               </span>
               <p className="min-w-0">

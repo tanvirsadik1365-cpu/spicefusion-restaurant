@@ -98,7 +98,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               Gallery
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[0.98] text-white sm:text-6xl lg:mt-6 lg:text-[6.2rem]">
-              Spice Fusion Takeaway Food Gallery
+              Spice Fusion Food Gallery
             </h1>
             <p className="mt-6 max-w-2xl text-base font-semibold leading-8 text-[#FFF1D1] sm:text-lg">
               Spice Fusion TAKEAWAY specials, tandoor smoke, biryani, vegetarian dishes and
@@ -107,7 +107,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
             <div className="mt-8 flex flex-wrap gap-3">
               <GalleryLink
                 href="/menu"
-                className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-[#121212] shadow-[0_16px_38px_rgba(229,43,43,0.24)] transition hover:-translate-y-0.5 hover:bg-white"
+                className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white shadow-[0_16px_38px_rgba(229,43,43,0.24)] transition hover:-translate-y-0.5 hover:bg-white hover:text-[#121212]"
               >
                 <Utensils size={17} aria-hidden="true" />
                 Order online
@@ -160,7 +160,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
       <div className="fixed bottom-6 right-6 z-40 hidden flex-col gap-2 lg:flex">
         <GalleryLink
           href="/menu"
-          className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] shadow-[0_16px_38px_rgba(0,0,0,0.3)] transition hover:-translate-y-0.5 hover:bg-white"
+          className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.3)] transition hover:-translate-y-0.5 hover:bg-white hover:text-[#121212]"
         >
           <Utensils size={17} aria-hidden="true" />
           Order

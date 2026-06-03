@@ -136,6 +136,7 @@ export function CheckoutSuccessTrackingClient() {
     useState<PaymentSyncState>("idle");
   const [tracking, setTracking] = useState<OrderTrackingResult | null>(null);
   const [purchaseTracked, setPurchaseTracked] = useState(false);
+  const [orderCompleteTracked, setOrderCompleteTracked] = useState(false);
 
   const syncStripeCheckoutSession = useCallback(
     async (sessionId: string, orderNumber: string) => {
@@ -310,6 +311,20 @@ export function CheckoutSuccessTrackingClient() {
     setPurchaseTracked(true);
   }, [purchaseTracked, tracking]);
 
+  useEffect(() => {
+    if (!tracking || orderCompleteTracked || tracking.status !== "completed") {
+      return;
+    }
+
+    trackEvent("order_complete", {
+      order_id: tracking.orderNumber,
+      order_type: tracking.orderType,
+      currency: "GBP",
+      value: tracking.totalPence / 100,
+    });
+    setOrderCompleteTracked(true);
+  }, [orderCompleteTracked, tracking]);
+
   const activeStepIndex = useMemo(() => {
     if (!tracking || tracking.status === "cancelled") {
       return -1;
@@ -434,7 +449,7 @@ export function CheckoutSuccessTrackingClient() {
                         <span
                           className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-black ${
                             complete
-                              ? "bg-[#E52B2B] text-[#121212]"
+                              ? "bg-[#E52B2B] text-white"
                               : "bg-white/12 text-white/50"
                           }`}
                         >
@@ -508,7 +523,7 @@ export function CheckoutSuccessTrackingClient() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href={trackingHref(orderNumber)}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#E52B2B] px-6 text-sm font-black text-[#121212] transition hover:bg-white"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
             >
               Open full tracking
             </Link>

@@ -178,7 +178,7 @@ export function OfferPopup() {
         </button>
 
         <div className="flex min-h-[86px] items-start gap-3 pr-8">
-          <span className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212] shadow-[0_12px_28px_rgba(229,43,43,0.24)]">
+          <span className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-white shadow-[0_12px_28px_rgba(229,43,43,0.24)]">
             <BadgePercent size={21} aria-hidden="true" />
           </span>
 
@@ -267,7 +267,7 @@ export function OfferPopup() {
         <Link
           href="/menu"
           onClick={closePopup}
-          className="mt-3 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-4 text-sm font-black text-[#121212] shadow-lg shadow-black/15 transition hover:bg-white"
+          className="mt-3 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-4 text-sm font-black text-white shadow-lg shadow-black/15 transition hover:bg-white hover:text-[#121212]"
         >
           <ShoppingBag size={17} aria-hidden="true" />
           Order online

@@ -246,10 +246,10 @@ export function AuthForm({ mode }: AuthFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-6 text-[#121212] shadow-[0_24px_70px_rgba(18,18,18,0.12)] sm:p-8"
+      className="rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-6 text-[#121212] shadow-[0_24px_70px_rgba(18,18,18,0.12)] sm:p-8"
     >
       <div className="flex items-center gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212] shadow-[0_14px_30px_rgba(229,43,43,0.18)]">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-white shadow-[0_14px_30px_rgba(229,43,43,0.18)]">
           {mode === "sign-up" ? (
             <UserPlus size={22} aria-hidden="true" />
           ) : mode === "forgot-password" || mode === "reset-password" ? (
@@ -273,7 +273,7 @@ export function AuthForm({ mode }: AuthFormProps) {
               type="button"
               onClick={handleGoogleSignIn}
               disabled={oauthSubmitting || submitting}
-              className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border border-white/14 bg-white px-4 py-3 text-sm font-black text-[#121212] shadow-[0_16px_36px_rgba(0,0,0,0.18)] transition hover:bg-[#F4B400] disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full border border-[#cbd5e1] bg-white px-4 py-3 text-sm font-black text-[#121212] shadow-[0_16px_36px_rgba(0,0,0,0.18)] transition hover:bg-[#F4B400] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <GoogleMark />
               {oauthSubmitting ? "Opening Google..." : "Continue with Google"}
@@ -395,7 +395,7 @@ export function AuthForm({ mode }: AuthFormProps) {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-4 py-3 text-sm font-black text-[#121212] shadow-[0_16px_36px_rgba(229,43,43,0.2)] transition hover:bg-white disabled:opacity-60"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-4 py-3 text-sm font-black text-white shadow-[0_16px_36px_rgba(229,43,43,0.2)] transition hover:bg-white hover:text-[#121212] disabled:opacity-60"
       >
         {submitting
           ? "Please wait..."

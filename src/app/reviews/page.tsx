@@ -87,7 +87,7 @@ export default function ReviewsPage() {
               Addingham reviews
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.02] sm:text-6xl lg:text-7xl">
-              What Customers Say About Spice Fusion TAKEAWAY
+              Customer Reviews
             </h1>
             <p className="mt-5 max-w-2xl text-base font-semibold leading-8 text-[#FFF1D1]">
               Notes from local takeaway regulars, families and guests
@@ -98,7 +98,7 @@ export default function ReviewsPage() {
                 href={restaurant.googleReviewsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-[#121212] shadow-[0_16px_38px_rgba(229,43,43,0.22)] transition hover:-translate-y-0.5 hover:bg-white"
+                className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white shadow-[0_16px_38px_rgba(229,43,43,0.22)] transition hover:-translate-y-0.5 hover:bg-white hover:text-[#121212]"
               >
                 Read Google reviews
                 <ExternalLink size={16} aria-hidden="true" />
@@ -113,7 +113,7 @@ export default function ReviewsPage() {
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-6 text-[#121212] shadow-[0_24px_70px_rgba(18,18,18,0.16)]">
+          <aside className="rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-6 text-[#121212] shadow-[0_24px_70px_rgba(18,18,18,0.16)]">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#E52B2B]">
               Customer highlights
             </p>
@@ -192,7 +192,7 @@ export default function ReviewsPage() {
           </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1fr)_380px]">
-            <blockquote className="rounded-2xl border border-[#cbd5e1] bg-[radial-gradient(circle_at_top_left,rgba(229,43,43,0.18),transparent_34%),#ffffff] p-6 shadow-[0_24px_70px_rgba(18,18,18,0.12)] sm:p-8">
+            <blockquote className="rounded-lg border border-[#cbd5e1] bg-[#ffffff] p-6 shadow-[0_24px_70px_rgba(18,18,18,0.12)] sm:p-8">
               <Quote className="text-[#E52B2B]" size={32} aria-hidden="true" />
               <p className="mt-5 max-w-3xl text-2xl font-black leading-tight sm:text-4xl">
                 Warm service, generous dishes, Spice Fusion TAKEAWAY specials and free local
@@ -216,7 +216,7 @@ export default function ReviewsPage() {
                 href={restaurant.googleReviewsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] transition hover:bg-white"
+                className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
               >
                 Open Google reviews
                 <ExternalLink size={16} aria-hidden="true" />
@@ -236,14 +236,14 @@ export default function ReviewsPage() {
           </div>
           <Link
             href="/menu"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-[#121212] transition hover:bg-white"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
           >
             <Utensils size={17} aria-hidden="true" />
             Order online
           </Link>
           <Link
             href="/contact"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#cbd5e1] bg-[#F5F5F5] px-6 text-sm font-black text-[#121212] transition hover:border-[#E52B2B]/60"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#cbd5e1] bg-[#F5F5F5] px-6 text-sm font-black text-white transition hover:border-[#E52B2B]/60"
           >
             <Phone size={17} aria-hidden="true" />
             Call to order

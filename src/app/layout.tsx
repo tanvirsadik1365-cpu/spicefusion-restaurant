@@ -17,7 +17,7 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 
-const googleTagManagerId = "";
+const googleTagManagerId = "GTM-546CFWHS";
 const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
 
 const poppins = Poppins({
@@ -201,6 +201,15 @@ export default function RootLayout({
         className={`${poppins.variable} ${playfair.variable} flex min-h-full flex-col`}
         suppressHydrationWarning
       >
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${googleTagManagerId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         {shouldRenderJsonLd ? (
           <script
             id="restaurant-structured-data"

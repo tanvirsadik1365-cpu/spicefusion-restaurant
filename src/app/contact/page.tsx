@@ -108,7 +108,7 @@ export default function ContactPage() {
             </p>
             <a
               href={restaurant.phoneHref}
-              className="mt-4 inline-flex text-3xl font-black leading-tight text-[#121212] transition hover:text-[#E52B2B]"
+              className="mt-4 inline-flex text-3xl font-black leading-tight text-white transition hover:text-[#E52B2B]"
             >
               {restaurant.phone}
             </a>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 key={title}
                 className="flex min-h-[220px] flex-col rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-5 shadow-[0_18px_52px_rgba(18,18,18,0.1)]"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212]">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E52B2B] text-white">
                   <Icon size={22} aria-hidden="true" />
                 </span>
                 <h2 className="mt-5 text-xl font-black">{title}</h2>
@@ -221,7 +221,7 @@ export default function ContactPage() {
 
               <button
                 type="submit"
-                className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-4 py-3 text-center text-sm font-black text-[#121212] transition hover:bg-white"
+                className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-4 py-3 text-center text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
               >
                 <Send size={18} aria-hidden="true" />
                 Send message
@@ -243,7 +243,7 @@ export default function ContactPage() {
                   href={restaurant.mapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] transition hover:bg-white"
+                  className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
                 >
                   <ExternalLink size={16} aria-hidden="true" />
                   Open Google Maps

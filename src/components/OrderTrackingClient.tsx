@@ -93,7 +93,7 @@ function statusTone(status: OrderTrackingResult["status"]) {
 function statusAccent(status: OrderTrackingResult["status"]) {
   switch (status) {
     case "pending":
-      return "bg-[#E52B2B] text-[#121212]";
+      return "bg-[#E52B2B] text-white";
     case "preparing":
       return "bg-sky-300 text-sky-950";
     case "ready":
@@ -214,7 +214,7 @@ export function OrderTrackingClient() {
   return (
     <section className="relative isolate overflow-hidden bg-[#F5F5F5] px-4 pb-24 pt-8 text-[#121212] sm:px-6 lg:px-8 lg:py-12">
       <div
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(229,43,43,0.18),transparent_34%),radial-gradient(circle_at_80%_10%,rgba(244,180,0,0.12),transparent_30%),linear-gradient(180deg,#FDF9F1_0%,#F5F5F5_58%,#F5F5F5_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#FFFFFF_0%,#F5F5F5_58%,#F5F5F5_100%)]"
         aria-hidden="true"
       />
 
@@ -241,7 +241,7 @@ export function OrderTrackingClient() {
 
           <div className="rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-5 shadow-[0_24px_70px_rgba(18,18,18,0.14)]">
             <div className="flex items-start gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-white">
                 <ShieldCheck size={20} aria-hidden="true" />
               </span>
               <div>
@@ -321,7 +321,7 @@ export function OrderTrackingClient() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-[#121212] shadow-[0_16px_36px_rgba(229,43,43,0.2)] transition hover:-translate-y-0.5 hover:bg-[#f7d477] disabled:cursor-not-allowed disabled:bg-[#d9d0c2] disabled:text-[#6f6657]"
+                className="inline-flex h-12 min-h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white shadow-[0_16px_36px_rgba(229,43,43,0.2)] transition hover:-translate-y-0.5 hover:bg-[#f7d477] disabled:cursor-not-allowed disabled:bg-[#d9d0c2] disabled:text-[#6f6657]"
               >
                 {isLoading ? (
                   <Loader2 className="animate-spin" size={18} aria-hidden="true" />
@@ -523,7 +523,7 @@ export function OrderTrackingClient() {
                     </p>
                     <a
                       href={phoneHref(tracking.restaurantSupportPhone)}
-                      className="mt-2 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#E52B2B] px-4 text-sm font-black text-[#121212] transition hover:bg-white"
+                      className="mt-2 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#E52B2B] px-4 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
                     >
                       {tracking.restaurantSupportPhone}
                     </a>
@@ -542,7 +542,7 @@ export function OrderTrackingClient() {
               <article className="min-h-[520px] rounded-2xl border border-[#cbd5e1] bg-[#ffffff] p-6 shadow-[0_24px_70px_rgba(18,18,18,0.12)] sm:p-8">
                 <div className="flex h-full flex-col justify-between gap-8">
                   <div>
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212] shadow-[0_16px_34px_rgba(229,43,43,0.18)]">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#E52B2B] text-white shadow-[0_16px_34px_rgba(229,43,43,0.18)]">
                       <ClipboardList size={25} aria-hidden="true" />
                     </span>
                     <h2 className="mt-6 max-w-xl text-3xl font-black leading-tight sm:text-4xl">

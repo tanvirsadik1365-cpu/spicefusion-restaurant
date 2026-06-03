@@ -1,10 +1,10 @@
-const feastImage = "/brand/food/spice-fusion-feast.jpg";
-const curryImage = "/brand/food/spice-fusion-curry.jpg";
-const tandooriImage = "/brand/food/spice-fusion-tandoori-grill.jpg";
-const biryaniImage = "/brand/food/spice-fusion-biryani.jpg";
-const naanRiceImage = "/brand/food/spice-fusion-naan-rice.jpg";
-const startersImage = "/brand/food/spice-fusion-starters.jpg";
-const storefrontImage = "/brand/food/spice-fusion-storefront.jpg";
+const feastImage = "/brand/food/indian-takeaway-addingham-feast.webp";
+const curryImage = "/brand/food/chicken-tikka-masala-addingham.webp";
+const tandooriImage = "/brand/food/tandoori-mixed-grill-addingham.webp";
+const biryaniImage = "/brand/food/lamb-biryani-ilkley.webp";
+const naanRiceImage = "/brand/food/naan-rice-addingham.webp";
+const startersImage = "/brand/food/indian-kebabs-starters-addingham.webp";
+const storefrontImage = "/brand/food/spice-fusion-takeaway-addingham-storefront.webp";
 const brandLogo = "/brand/spice-fusion-logo.png";
 const brandIcon = "/brand/spice-fusion-icon.png";
 
@@ -25,7 +25,7 @@ type MenuSection = {
 };
 
 export const restaurant = {
-  name: "Spice Fusion TAKEAWAY",
+  name: "Spice Fusion Takeaway",
   shortName: "Spice Fusion",
   established: "",
   tagline: "Freshly Cooked Indian Takeaway",
@@ -37,20 +37,20 @@ export const restaurant = {
   phoneHref: "tel:+441943830864",
   secondaryPhoneHref: "tel:+441943830864",
   email: "contact@spicefusiontakeaway.co.uk",
-  website: "spicefusiontakeaway.co.uk",
-  siteUrl: "https://spicefusiontakeaway.co.uk",
+  website: "spicefusion.orderdaily.uk",
+  siteUrl: "https://spicefusion.orderdaily.uk",
   menuPdfUrl: "",
   address: ["137 Main St", "Addingham, Ilkley LS29 0LZ", "United Kingdom"],
   location: "137 Main St, Addingham, Ilkley LS29 0LZ, United Kingdom",
   deliveryInfo:
-    "£3 delivery charge within 5 miles. Minimum order £15. Up to 7 miles with +£1 per extra mile outside 5 miles.",
+    "£3 delivery charge within a 5-mile radius. Minimum order £15. Up to 7 miles with +£1 per extra mile outside 5 miles.",
   mapsUrl: "https://maps.google.com/?q=137+Main+St,+Addingham,+Ilkley+LS29+0LZ",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=137+Main+St,+Addingham,+Ilkley+LS29+0LZ&output=embed",
   googleReviewsUrl:
-    "https://www.google.com/search?q=Spice+Fusion+TAKEAWAY+LS29+0LZ&oq=Spice+Fusion+TAKEAWAY+LS29+0LZ&sourceid=chrome&ie=UTF-8",
-  facebookUrl: "",
-  instagramUrl: "",
+    "https://www.google.com/search?q=Spice+Fusion+Indian+Takeaway+LS29+0LZ&oq=Spice+Fusion+Indian+Takeaway+LS29+0LZ&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIHCAUQABjvBTIHCAUQABjvBdIBBzM3OWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8",
+  facebookUrl: "https://www.facebook.com/spicefusion.uk/",
+  instagramUrl: "https://www.instagram.com/spicefusion.uk",
   hours: [
     { days: "Tuesday - Sunday", time: "5:30pm - 10:30pm" },
     { days: "Monday", time: "Closed (open on Bank Holiday Mondays)" },
@@ -144,7 +144,7 @@ export const diningOffer = {
   capacity: "Up to 7 miles",
   drinks: "Soft drinks available",
   details: [
-    "£3 delivery charge within 5 miles",
+    "£3 delivery charge within a 5-mile radius",
     "Minimum order £15",
     "Up to 7 miles maximum",
     "Additional £1 per mile outside 5 miles",
@@ -182,10 +182,42 @@ export const menuCategories = [
   { name: "House Specialities", count: "9 options", detail: "Balti, Jalfrazi, Karahi, Achari, Saag and Bombay styles." },
   { name: "Chef's Specialities", count: "29", detail: "Chef-crafted curries from mild to very hot." },
   { name: "Traditional Curries", count: "9 options", detail: "Korma, Dhansak, Bhuna, Rogan Josh and more." },
-  { name: "Vegetarian Dishes", count: "14", detail: "Vegetarian mains and sides." },
+  { name: "Vegetarian Main Dishes", count: "14", detail: "Vegetarian curries and bhaji main portions." },
+  { name: "Vegetable Side Dishes", count: "11", detail: "Side portions of vegetarian bhaji and vegetable dishes." },
   { name: "Biryani", count: "9", detail: "Herb and spice basmati biryani dishes." },
   { name: "Rice & Breads", count: "25", detail: "Rice accompaniments, naan, chapati and roti." },
   { name: "Sundries & Snacks", count: "28", detail: "Sides, wraps, drinks and set meals." },
+];
+
+const vegetarianMainItems: MenuItem[] = [
+  { name: "Shabzi Chot Poti", price: "6.95", description: "Spicy potatoes, chick peas, spinach and cauliflower in a rich bhuna style sauce." },
+  { name: "Vegetable Zafrani (mild)", price: "6.95", description: "A mild vegetable dish similar to chicken tikka masala." },
+  { name: "Desi Vegetable Masala", price: "6.95", description: "Cauliflower, potatoes and okra cooked with onions and tomatoes in a desi style sauce." },
+  { name: "Mixed Veg Bhaji", price: "6.50", description: "Main portion." },
+  { name: "Mushroom Bhaji", price: "6.50", description: "Main portion." },
+  { name: "Chana Aloo", price: "6.50", description: "Chick peas and potatoes, main portion." },
+  { name: "Saag Paneer", price: "6.95", description: "Spinach with paneer, main portion." },
+  { name: "Saag Bhaji", price: "6.50", description: "Spinach, main portion." },
+  { name: "Aloo Gobi", price: "6.50", description: "Potatoes and cauliflower, main portion." },
+  { name: "Bombay Aloo", price: "6.50", description: "Spicy potatoes, main portion." },
+  { name: "Saag Aloo", price: "6.50", description: "Spinach and potatoes, main portion." },
+  { name: "Cauliflower Bhaji", price: "6.50", description: "Main portion." },
+  { name: "Bhindi Bhaji (Okra)", price: "6.50", description: "Main portion." },
+  { name: "Tarka Dhall", price: "6.50", description: "Lentils, main portion." },
+];
+
+const vegetableSideItems: MenuItem[] = [
+  { name: "Mixed Veg Bhaji", price: "3.50", description: "Side portion." },
+  { name: "Mushroom Bhaji", price: "3.50", description: "Side portion." },
+  { name: "Chana Aloo", price: "3.50", description: "Chick peas and potatoes, side portion." },
+  { name: "Saag Paneer", price: "3.50", description: "Spinach with paneer, side portion." },
+  { name: "Saag Bhaji", price: "3.50", description: "Spinach, side portion." },
+  { name: "Aloo Gobi", price: "3.50", description: "Potatoes and cauliflower, side portion." },
+  { name: "Bombay Aloo", price: "3.50", description: "Spicy potatoes, side portion." },
+  { name: "Saag Aloo", price: "3.50", description: "Spinach and potatoes, side portion." },
+  { name: "Cauliflower Bhaji", price: "3.50", description: "Side portion." },
+  { name: "Bhindi Bhaji (Okra)", price: "3.50", description: "Side portion." },
+  { name: "Tarka Dhall", price: "3.50", description: "Lentils, side portion." },
 ];
 
 export const menuSections: MenuSection[] = [
@@ -306,7 +338,7 @@ export const menuSections: MenuSection[] = [
       { name: "Lamb Tikka Masala (mild)", price: "9.95" },
       { name: "Chicken Tikka Passanda (mild)", price: "7.95" },
       { name: "Lamb Tikka Passanda (mild)", price: "9.95" },
-      { name: "Tikka Makhani Chicken (mild)", price: "7.95" },
+      { name: "Tikka Makhani Chicken (mild)", price: "8.50" },
       { name: "Tikka Makhani Lamb (mild)", price: "10.50" },
       { name: "Tandoori Butter Chicken (mild)", price: "7.95" },
       { name: "Balti Butter Chicken", price: "7.95" },
@@ -349,27 +381,20 @@ export const menuSections: MenuSection[] = [
     ],
   },
   {
-    id: "vegetarian",
-    title: "Vegetarian Dishes",
-    description: "Vegetarian mains and side options.",
+    id: "vegetarian-main-dishes",
+    title: "Vegetarian Main Dishes",
+    description: "Vegetarian curries and bhaji dishes served as main portions.",
     image: curryImage,
-    items: [
-      { name: "Shabzi Chot Poti", price: "6.95" },
-      { name: "Vegetable Zafrani (mild)", price: "6.95" },
-      { name: "Desi Vegetable Masala", price: "6.95" },
-      { name: "Mixed Veg Bhaji", price: "6.50 / 3.50" },
-      { name: "Mushroom Bhaji", price: "6.50 / 3.50" },
-      { name: "Chana Aloo", price: "6.50 / 3.50" },
-      { name: "Saag Paneer", price: "6.95 / 3.50" },
-      { name: "Saag Bhaji", price: "6.50 / 3.50" },
-      { name: "Aloo Gobi", price: "6.50 / 3.50" },
-      { name: "Bombay Aloo", price: "6.50 / 3.50" },
-      { name: "Saag Aloo", price: "6.50 / 3.50" },
-      { name: "Cauliflower Bhaji", price: "6.50 / 3.50" },
-      { name: "Bhindi Bhaji (Okra)", price: "6.50 / 3.50" },
-      { name: "Tarka Dhall", price: "6.50 / 3.50" },
-    ],
-    priceNote: "Vegetarian items shown as Main / Side where applicable.",
+    items: vegetarianMainItems,
+    priceNote: "Main portions.",
+  },
+  {
+    id: "vegetable-side-dishes",
+    title: "Vegetable Side Dishes",
+    description: "Side portions of vegetarian bhaji, saag, aloo and dhall dishes.",
+    image: curryImage,
+    items: vegetableSideItems,
+    priceNote: "Side portions.",
   },
   {
     id: "rice-accompaniments",
@@ -438,7 +463,7 @@ export const menuSections: MenuSection[] = [
       { name: "Cans (Coke, Pepsi, Fanta, Mango Rubicon)", price: "1.30" },
       { name: "Bottle 1.5ltr", price: "2.95" },
       { name: "Meal Deal", price: "11.95", description: "Popadom, salad, mint sauce, meat or veg samosa, one traditional chicken/meat/vegetable dish, pilau rice and Coke or Diet Coke." },
-      { name: "Set Meal for 4", price: "59.95", description: "4 popadoms, salad, mint sauce, onion bhaji, chicken tikka, seekh kebab, meat samosa, four mains, two sides, rice and naan." },
+      { name: "Set Meal for 4", price: "59.95", description: "4 popadoms, salad, mint sauce, onion bhaji, chicken tikka, seekh kebab, meat samosa, chicken bhuna, lamb tikka jalfrezi, chicken tikka masala, lamb karahi, saag bhaji, Bombay aloo, pilau rice, boiled rice, 1 plain naan and 1 garlic naan." },
       { name: "Set Meal 1", price: "11.95", description: "Popadom, salad, mint sauce, onion bhaji, chicken tikka masala and pilau rice." },
       { name: "Set Meal 2", price: "26.95", description: "Popadom, salad, mint sauce, onion bhaji, chicken tikka, chicken tikka masala, meat bhuna, saag aloo, pilau rice and naan." },
       { name: "Vegetarian Set Meal 1", price: "10.50", description: "Popadom, salad, mint sauce, onion bhaji, vegetable balti and pilau rice." },
@@ -542,7 +567,7 @@ export const faqs = [
     category: "Delivery",
     question: "What are your delivery charges?",
     answer:
-      "Delivery is £3 within 5 miles. Orders outside 5 miles are charged an additional £1 per mile up to 7 miles max.",
+      "Delivery is £3 within a 5-mile radius. Orders outside 5 miles are charged an additional £1 per mile up to 7 miles max.",
   },
   {
     category: "Location",
@@ -554,5 +579,35 @@ export const faqs = [
     question: "What are your opening times?",
     answer:
       "Open Tuesday to Sunday from 5:30pm to 10:30pm. Closed Mondays except Bank Holidays.",
+  },
+  {
+    category: "Local SEO",
+    question: "What is the best Indian takeaway in Addingham?",
+    answer:
+      "Spice Fusion Takeaway serves authentic Indian takeaway and Bangladeshi cuisine from 137 Main St, Addingham, with online ordering for collection and delivery.",
+  },
+  {
+    category: "Delivery",
+    question: "Do you deliver to Ilkley?",
+    answer:
+      "Spice Fusion delivers locally across Addingham and nearby LS29 areas, including nearby Ilkley addresses within the delivery radius.",
+  },
+  {
+    category: "Offers",
+    question: "Do you offer collection discounts?",
+    answer:
+      "Yes. Online collection orders receive 15% off, and delivery orders receive 10% off when ordering direct.",
+  },
+  {
+    category: "Menu",
+    question: "What is Chicken Tikka Shatkora?",
+    answer:
+      "Chicken Tikka Shatkora is a Bangladeshi-style curry cooked with shatkora citrus fruit for a hot, sour and tangy flavour.",
+  },
+  {
+    category: "Set Meals",
+    question: "What is included in the Set Meal for 4?",
+    answer:
+      "Set Meal for 4 includes 4 popadoms, salad, mint sauce, onion bhaji, chicken tikka, seekh kebab, meat samosa, chicken bhuna, lamb tikka jalfrezi, chicken tikka masala, lamb karahi, saag bhaji, Bombay aloo, pilau rice, boiled rice, 1 plain naan and 1 garlic naan.",
   },
 ];

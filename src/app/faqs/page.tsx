@@ -7,20 +7,17 @@ import { faqs, foodImages } from "@/lib/restaurant";
 import {
   createBreadcrumbJsonLd,
   createFaqJsonLd,
+  createPageMetadata,
   jsonLdMarkup,
   shouldRenderJsonLd,
 } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Spice Fusion TAKEAWAY FAQs Addingham",
-  },
+export const metadata: Metadata = createPageMetadata({
+  path: "/faqs",
+  title: "Indian Takeaway FAQs Addingham | Spice Fusion Takeaway",
   description:
-    "Find answers about ordering, delivery, collection, offers, and Spice Fusion TAKEAWAY in Addingham.",
-  alternates: {
-    canonical: "https://spicefusiontakeaway.co.uk/faqs",
-  },
-};
+    "Find answers about Spice Fusion Takeaway ordering, delivery, collection discounts, Indian dishes and Bangladeshi cuisine in Addingham.",
+});
 
 const faqJsonLd = createFaqJsonLd();
 const breadcrumbJsonLd = createBreadcrumbJsonLd([

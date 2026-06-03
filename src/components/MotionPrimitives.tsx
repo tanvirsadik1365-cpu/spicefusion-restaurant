@@ -81,7 +81,7 @@ export function MobileStickyCta() {
       <div className="mx-auto grid max-w-md grid-cols-[1fr_auto] gap-2">
         <Link
           href="/menu"
-          className="inline-flex h-[52px] min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] shadow-[0_12px_30px_rgba(229,43,43,0.26)]"
+          className="inline-flex h-[52px] min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white shadow-[0_12px_30px_rgba(229,43,43,0.26)]"
         >
           <ShoppingBag size={18} aria-hidden="true" />
           Order online

@@ -135,7 +135,7 @@ export function getActiveReward(subtotal: number, orderType: OrderType): ActiveR
     detail:
       orderType === "collection"
         ? "Collection orders are available directly from Spice Fusion."
-        : "Delivery is available from £15 minimum. £3 within 5 miles, then +£1 per mile (up to 7 miles).",
+        : "Delivery is available from £15 minimum. £3 within a 5-mile radius, then +£1 per mile (up to 7 miles).",
     requiresSideDish: false,
   };
 }
@@ -163,9 +163,7 @@ export function getOrderTotal(
 
 export function getSideDishOptions() {
   return getCatalogItems().filter(
-    (item) =>
-      item.category === "Vegetarian Dishes" ||
-      item.category === "Vegetable Side Dishes",
+    (item) => item.category === "Vegetable Side Dishes",
   );
 }
 

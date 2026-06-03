@@ -20,7 +20,7 @@ export function PageIntro({
   const hasImage = Boolean(imageSrc && imageAlt);
 
   return (
-    <section className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+    <section className="border-b border-[#e5e7eb] bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <div
         className={`mx-auto grid max-w-7xl gap-8 ${
           hasImage ? "lg:grid-cols-[0.88fr_0.72fr] lg:items-center" : ""
@@ -35,18 +35,18 @@ export function PageIntro({
           <h1 className="mt-3 break-words text-3xl font-black leading-tight text-[var(--brand-ink)] sm:text-5xl">
             {title}
           </h1>
-          <p className="mt-5 text-base leading-8 text-[var(--brand-muted)] sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-medium leading-8 text-[#4b5563] sm:text-lg">
             {description}
           </p>
           {meta ? (
-            <p className="mt-6 inline-flex max-w-full items-center rounded-full border border-[var(--brand-line)] bg-white px-4 py-2 text-sm font-black text-[var(--brand-primary)] shadow-sm">
+            <p className="mt-6 inline-flex max-w-full items-center rounded-lg border border-[var(--brand-line)] bg-[#F5F5F5] px-4 py-2 text-sm font-black text-[var(--brand-primary)] shadow-sm">
               {meta}
             </p>
           ) : null}
         </div>
 
         {imageSrc && imageAlt ? (
-          <div className="relative min-h-[260px] overflow-hidden rounded-lg border border-[var(--brand-line)] bg-white shadow-sm sm:min-h-[340px]">
+          <div className="relative min-h-[240px] overflow-hidden rounded-lg border border-[var(--brand-line)] bg-white shadow-sm sm:min-h-[320px]">
             <Image
               src={imageSrc}
               alt={imageAlt}

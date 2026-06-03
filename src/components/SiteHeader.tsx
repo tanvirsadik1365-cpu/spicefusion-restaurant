@@ -83,7 +83,7 @@ export function SiteHeader() {
                 href={link.href}
                 className={`rounded-full px-3 py-2.5 transition xl:px-4 ${
                   active
-                    ? "bg-[#E52B2B] text-[#121212] shadow-sm"
+                    ? "bg-[#E52B2B] text-white shadow-sm"
                     : "hover:bg-white/10 hover:text-white"
                 }`}
                 aria-current={active ? "page" : undefined}
@@ -104,7 +104,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/menu"
-            className="flex h-10 min-w-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#E52B2B] px-2.5 text-sm font-black text-[#121212] shadow-[0_12px_30px_rgba(229,43,43,0.22)] transition hover:-translate-y-0.5 hover:bg-white sm:h-11 sm:min-w-[132px] sm:px-4"
+            className="flex h-10 min-w-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#E52B2B] px-2.5 text-sm font-black text-white shadow-[0_12px_30px_rgba(229,43,43,0.22)] transition hover:-translate-y-0.5 hover:bg-white hover:text-[#121212] sm:h-11 sm:min-w-[132px] sm:px-4"
           >
             <ShoppingBag size={17} aria-hidden="true" />
             <span className="hidden sm:inline">Order Online</span>
@@ -136,7 +136,7 @@ export function SiteHeader() {
                     href={link.href}
                     className={`flex min-h-12 items-center justify-between rounded-lg border px-4 transition ${
                       active
-                        ? "border-[#E52B2B] bg-[#E52B2B] text-[#121212]"
+                        ? "border-[#E52B2B] bg-[#E52B2B] text-white"
                         : "border-white/10 bg-white/6 text-white/82 hover:border-white/22 hover:text-white"
                     }`}
                     aria-current={active ? "page" : undefined}

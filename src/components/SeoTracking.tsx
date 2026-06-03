@@ -16,6 +16,10 @@ export function SeoTracking() {
 
     trackPageView(pathname);
     trackMetaEvent("PageView", { page_path: pathname });
+
+    if (pathname === "/menu" || pathname.startsWith("/menu/")) {
+      trackMetaEvent("ViewContent", { page_path: pathname });
+    }
   }, [pathname]);
 
   useEffect(() => {
@@ -40,6 +44,11 @@ export function SeoTracking() {
 
       if (href.includes("wa.me") || href.includes("whatsapp")) {
         trackEvent("whatsapp_click", { href, link_text: text });
+      }
+
+      if (href.includes("/cart") || href.includes("/checkout")) {
+        trackEvent("begin_checkout", { href, link_text: text });
+        trackMetaEvent("InitiateCheckout", { href, link_text: text });
       }
     }
 

@@ -1,11 +1,9 @@
-﻿import { absoluteUrl } from "@/lib/seo";
-
 export function GET() {
   return new Response(
     `User-agent: *
 Allow: /
 
-Sitemap: ${absoluteUrl("/sitemap.xml")}
+Sitemap: https://spicefusion.orderdaily.uk/sitemap.xml
 `,
     {
       headers: {
@@ -14,4 +12,3 @@ Sitemap: ${absoluteUrl("/sitemap.xml")}
     },
   );
 }
-

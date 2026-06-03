@@ -135,9 +135,7 @@ select option:disabled {
 }
 
 .spice-brand-panel {
-  background:
-    radial-gradient(circle at top right, rgba(244, 180, 0, 0.18), transparent 38%),
-    linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
   color: white;
   border: 1px solid color-mix(in srgb, var(--brand-primary) 80%, black);
   box-shadow: 0 22px 48px rgba(229, 43, 43, 0.22);

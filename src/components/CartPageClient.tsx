@@ -86,7 +86,7 @@ const checkoutFieldClass =
 const checkoutSecondaryButtonClass =
   "inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 text-sm font-black text-white transition hover:border-[#E52B2B]/55 hover:text-[#F4B400] disabled:cursor-not-allowed disabled:opacity-40";
 const checkoutPrimaryButtonClass =
-  "inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-[#121212] shadow-lg shadow-[#E52B2B]/20 transition hover:bg-white disabled:cursor-not-allowed disabled:bg-white/18 disabled:text-white/45 disabled:shadow-none";
+  "inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white shadow-lg shadow-[#E52B2B]/20 transition hover:bg-white hover:text-[#121212] disabled:cursor-not-allowed disabled:bg-white/18 disabled:text-white/45 disabled:shadow-none";
 const lastOrderTrackingKey = "Spice Fusion TAKEAWAY-last-order-tracking-v1";
 
 function getOrigin() {
@@ -556,6 +556,11 @@ export function CartPageClient() {
       value: total,
       items_count: itemCount,
     });
+    trackMetaEvent("InitiateCheckout", {
+      currency: "GBP",
+      value: total,
+      num_items: itemCount,
+    });
 
     try {
       const accessToken = await prepareCheckoutAccount();
@@ -739,11 +744,11 @@ export function CartPageClient() {
                   <span
                     className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full text-xs font-black ring-4 ring-[#1A1A1A] transition ${
                       active
-                        ? "bg-[#E52B2B] text-[#121212] shadow-lg shadow-[#E52B2B]/15"
+                        ? "bg-[#E52B2B] text-white shadow-lg shadow-[#E52B2B]/15"
                         : step.complete
-                          ? "bg-[#E52B2B] text-[#121212]"
+                          ? "bg-[#E52B2B] text-white"
                           : unlocked
-                            ? "bg-white/16 text-white group-hover:bg-white/24"
+                              ? "bg-white/16 text-white group-hover:bg-white/24"
                             : "bg-white/8 text-white/40"
                     }`}
                   >
@@ -829,7 +834,7 @@ export function CartPageClient() {
             </p>
             <Link
               href="/menu#popular-picks"
-              className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-[#121212] transition hover:bg-white"
+              className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-5 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
             >
               <Sparkles size={16} aria-hidden="true" />
               Browse favourites
@@ -933,7 +938,7 @@ export function CartPageClient() {
                 aria-pressed={active}
                 className={`rounded-lg border p-4 text-left transition ${
                   active
-                    ? "border-[#E52B2B]/80 bg-[#E52B2B] text-[#121212] shadow-lg shadow-[#E52B2B]/15"
+                    ? "border-[#E52B2B]/80 bg-[#E52B2B] text-white shadow-lg shadow-[#E52B2B]/15"
                     : "border-white/10 bg-white/8 text-white hover:border-[#E52B2B]/35"
                 }`}
               >
@@ -963,7 +968,7 @@ export function CartPageClient() {
                 >
                   {type === "collection"
                     ? `Pick up from ${restaurant.location}.`
-                    : "Delivery on orders £15+ within 5 miles for LS29 area."}
+                    : "Delivery on orders £15+ within a 5-mile radius for LS29 area."}
                 </span>
               </button>
             );
@@ -1073,7 +1078,7 @@ export function CartPageClient() {
                     aria-pressed={active}
                     className={`flex min-h-11 items-center justify-center gap-2 rounded-full px-3 py-2 font-black transition ${
                       active
-                        ? "bg-[#E52B2B] text-[#121212] shadow-sm"
+                        ? "bg-[#E52B2B] text-white shadow-sm"
                         : "text-white/64 hover:bg-white/10 hover:text-white"
                     }`}
                   >
@@ -1267,7 +1272,7 @@ export function CartPageClient() {
                 aria-pressed={active}
                 className={`rounded-lg border p-4 text-left transition ${
                   active
-                    ? "border-[#E52B2B]/70 bg-[#E52B2B] text-[#121212] shadow-lg shadow-[#E52B2B]/15"
+                    ? "border-[#E52B2B]/70 bg-[#E52B2B] text-white shadow-lg shadow-[#E52B2B]/15"
                     : "border-white/10 bg-white/8 text-white hover:border-[#E52B2B]/35"
                 }`}
               >
@@ -1431,7 +1436,7 @@ export function CartPageClient() {
     return (
       <aside className="h-fit rounded-lg border border-white/10 bg-[#1A1A1A] p-5 text-white shadow-[0_22px_54px_rgba(0,0,0,0.28)] lg:sticky lg:top-24">
         <div className="flex items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212]">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E52B2B] text-white">
             <ReceiptText size={20} aria-hidden="true" />
           </span>
           <div>
@@ -1489,7 +1494,7 @@ export function CartPageClient() {
 
         <div className="smart-suggestion mt-5 rounded-lg border border-[#E52B2B]/20 bg-[#E52B2B]/10 p-4">
           <h3 className="flex items-center gap-2 font-black text-white">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E52B2B] text-[#121212]">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E52B2B] text-white">
               <Sparkles size={16} aria-hidden="true" />
             </span>
             Smart suggestion
@@ -1501,7 +1506,7 @@ export function CartPageClient() {
           {"href" in smartSuggestion && smartSuggestion.href ? (
             <Link
               href={smartSuggestion.href}
-              className="mt-4 inline-flex h-10 items-center justify-center rounded-full bg-[#E52B2B] px-4 text-sm font-black text-[#121212] transition hover:bg-white"
+              className="mt-4 inline-flex h-10 items-center justify-center rounded-full bg-[#E52B2B] px-4 text-sm font-black text-white transition hover:bg-white hover:text-[#121212]"
             >
               {smartSuggestion.action}
             </Link>

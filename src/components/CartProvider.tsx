@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackMetaEvent } from "@/lib/analytics";
 import { getCatalogMap, type CartItem, type OrderType } from "@/lib/order";
 
 type CartContextValue = {
@@ -112,6 +112,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
       item_id: item.id,
       item_name: item.name,
       item_category: item.category,
+      value: item.unitPrice,
+      currency: "GBP",
+    });
+    trackMetaEvent("AddToCart", {
+      content_ids: item.id,
+      content_name: item.name,
+      content_category: item.category,
       value: item.unitPrice,
       currency: "GBP",
     });

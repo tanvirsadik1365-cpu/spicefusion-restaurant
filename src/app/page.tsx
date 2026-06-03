@@ -32,7 +32,7 @@ import { createPageMetadata, seoPages } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata(seoPages.home);
 
 const heroStats = [
-  ["£3", "Delivery within 5 miles"],
+  ["£3", "Delivery within 5-mile radius"],
   ["£15", "Minimum delivery order"],
   ["7 mi", "Maximum delivery area"],
 ];
@@ -58,7 +58,7 @@ const orderSteps = [
 const storyPoints = [
   "Freshly cooked Indian takeaway from the heart of Addingham.",
   "Signature curries, tandoori grills and familiar takeaway favourites.",
-  "Clear delivery terms before checkout: £3 within 5 miles, then £1 per extra mile up to 7 miles.",
+  "Clear delivery terms before checkout: £3 within a 5-mile radius, then £1 per extra mile up to 7 miles.",
 ];
 
 const homeCss = `
@@ -83,11 +83,7 @@ const homeCss = `
 }
 
 .spice-glow {
-  background:
-    radial-gradient(circle at 18% 22%, rgba(244, 180, 0, .22), transparent 28%),
-    radial-gradient(circle at 80% 14%, rgba(229, 43, 43, .35), transparent 30%),
-    radial-gradient(circle at 80% 84%, rgba(244, 180, 0, .16), transparent 26%),
-    #121212;
+  background: #121212;
 }
 
 @keyframes spice-reveal {
@@ -125,9 +121,7 @@ export default function Home() {
           sizes="100vw"
           className="object-cover opacity-36 mix-blend-screen"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(18,18,18,.98)_0%,rgba(18,18,18,.86)_46%,rgba(18,18,18,.52)_100%)]" />
-        <div className="absolute left-[-8rem] top-28 h-64 w-64 rounded-full bg-[#E52B2B]/30 blur-3xl" />
-        <div className="absolute bottom-0 right-[-10rem] h-80 w-80 rounded-full bg-[#F4B400]/25 blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(18,18,18,.97)_0%,rgba(18,18,18,.86)_48%,rgba(18,18,18,.58)_100%)]" />
 
         <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:min-h-[calc(92svh-6rem)] lg:grid-cols-[1.02fr_.78fr] lg:items-center lg:gap-10">
           <div className="spice-reveal">
@@ -136,8 +130,8 @@ export default function Home() {
               Addingham Indian Takeaway
             </div>
 
-            <h1 className="mt-5 max-w-5xl text-[2.75rem] font-semibold leading-[0.95] tracking-[-0.035em] text-white sm:mt-6 sm:text-7xl lg:text-[6.4rem]">
-              Fresh spice, fast comfort, proper takeaway nights.
+            <h1 className="mt-5 max-w-5xl text-[2.55rem] font-semibold leading-[1.02] text-white sm:mt-6 sm:text-6xl lg:text-[5.4rem]">
+              Authentic Indian Takeaway in Addingham
             </h1>
             <p className="mt-6 max-w-2xl text-base font-medium leading-8 text-white/78 sm:text-lg">
               Spice Fusion TAKEAWAY serves freshly cooked curries, tandoori
@@ -151,7 +145,7 @@ export default function Home() {
                 className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-7 text-sm font-black text-white shadow-[0_20px_55px_rgba(229,43,43,.34)] transition hover:-translate-y-1 hover:bg-[#F4B400] hover:text-[#121212]"
               >
                 <ShoppingBag size={19} aria-hidden="true" />
-                Start an order
+                Order Direct & Save
                 <ArrowRight className="transition group-hover:translate-x-1" size={17} aria-hidden="true" />
               </Link>
               <a
@@ -174,8 +168,8 @@ export default function Home() {
           </div>
 
           <aside className="spice-reveal spice-reveal-delay relative lg:block">
-            <div className="spice-float relative overflow-hidden rounded-[2.2rem] border border-white/14 bg-white/10 p-4 shadow-[0_30px_90px_rgba(0,0,0,.38)] backdrop-blur">
-              <div className="relative aspect-[16/11] overflow-hidden rounded-[1.7rem] lg:aspect-[4/5]">
+            <div className="spice-float relative overflow-hidden rounded-lg border border-white/14 bg-white/10 p-3 shadow-[0_30px_90px_rgba(0,0,0,.38)] backdrop-blur">
+              <div className="relative aspect-[16/11] overflow-hidden rounded-lg lg:aspect-[4/5]">
                 <Image
                   src={foodImages.tandoori}
                   alt="Freshly cooked Spice Fusion tandoori mixed grill"
@@ -193,7 +187,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="absolute -bottom-7 -left-8 rounded-3xl bg-[#F4B400] p-5 text-[#121212] shadow-[0_24px_70px_rgba(0,0,0,.3)]">
+            <div className="absolute -bottom-7 -left-4 rounded-lg bg-[#F4B400] p-5 text-[#121212] shadow-[0_24px_70px_rgba(0,0,0,.3)] sm:-left-8">
               <p className="text-xs font-black uppercase tracking-[0.16em]">Open tonight</p>
               <p className="mt-1 text-xl font-semibold">5:30pm - 10:30pm</p>
             </div>
@@ -204,7 +198,7 @@ export default function Home() {
       <section className="bg-[#FFFFFF] px-4 py-14 text-[#121212] sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.88fr_1.12fr] lg:items-center">
           <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-[#121212] shadow-[0_30px_90px_rgba(18,18,18,.18)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#121212] shadow-[0_30px_90px_rgba(18,18,18,.18)]">
               <Image
                 src={foodImages.exterior}
                 alt="Spice Fusion takeaway storefront style image"
@@ -213,7 +207,7 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 left-5 right-5 rounded-3xl border border-black/10 bg-white p-5 shadow-[0_24px_70px_rgba(18,18,18,.16)] sm:left-auto sm:right-8 sm:w-72">
+            <div className="absolute -bottom-6 left-5 right-5 rounded-lg border border-black/10 bg-white p-5 shadow-[0_24px_70px_rgba(18,18,18,.16)] sm:left-auto sm:right-8 sm:w-72">
               <div className="flex items-center gap-3">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E52B2B] text-white">
                   <Heart size={20} aria-hidden="true" />
@@ -228,7 +222,7 @@ export default function Home() {
 
           <div className="pt-8 lg:pt-0">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#E52B2B]">Our Story</p>
-            <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-[-0.03em] sm:text-5xl">
+            <h2 className="mt-3 text-4xl font-semibold leading-tight sm:text-5xl">
               A Spice Fusion night should feel easy before the first bite.
             </h2>
             <p className="mt-5 text-base leading-8 text-[#4B4B4B]">
@@ -253,7 +247,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#E52B2B]">How it works</p>
-            <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Order without second-guessing.</h2>
+            <h2 className="mt-3 text-4xl font-semibold sm:text-5xl">Order without second-guessing.</h2>
           </div>
           <div className="mt-9 grid gap-4 md:grid-cols-3">
             {orderSteps.map(({ Icon, title, text }, index) => (
@@ -275,7 +269,7 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.18em] text-[#F4B400]">Popular Picks</p>
-              <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
+              <h2 className="mt-3 text-4xl font-semibold sm:text-5xl">
                 Real menu favourites, easy to choose.
               </h2>
             </div>
@@ -314,7 +308,7 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[.78fr_1.22fr] lg:items-start">
             <div className="lg:sticky lg:top-28">
               <p className="text-sm font-black uppercase tracking-[0.18em] text-[#E52B2B]">Menu Sections</p>
-              <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">A menu built for every craving.</h2>
+              <h2 className="mt-3 text-4xl font-semibold sm:text-5xl">A menu built for every craving.</h2>
               <p className="mt-4 text-sm leading-7 text-[#555]">
                 Jump into the full menu for prices, sections and quick ordering.
                 From mild creamy dishes to very hot chilli choices, there is a
@@ -326,7 +320,7 @@ export default function Home() {
                 <Link
                   key={category.name}
                   href="/menu"
-                  className="group rounded-3xl border border-black/8 bg-white p-5 shadow-[0_16px_45px_rgba(18,18,18,.06)] transition hover:-translate-y-1 hover:border-[#E52B2B]/50 hover:shadow-[0_24px_70px_rgba(18,18,18,.11)]"
+                  className="group rounded-lg border border-black/8 bg-white p-5 shadow-[0_16px_45px_rgba(18,18,18,.06)] transition hover:-translate-y-1 hover:border-[#E52B2B]/50 hover:shadow-[0_24px_70px_rgba(18,18,18,.11)]"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -347,7 +341,7 @@ export default function Home() {
 
       <section className="bg-[#FFFFFF] px-4 py-14 text-[#121212] sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.08fr_.92fr] lg:items-stretch">
-          <div className="overflow-hidden rounded-[2rem] bg-[#121212] text-white shadow-[0_30px_90px_rgba(18,18,18,.18)]">
+          <div className="overflow-hidden rounded-lg bg-[#121212] text-white shadow-[0_30px_90px_rgba(18,18,18,.18)]">
             <div className="grid min-h-full gap-0 md:grid-cols-[.9fr_1.1fr]">
               <div className="relative min-h-[300px]">
                 <Image
@@ -361,7 +355,7 @@ export default function Home() {
               </div>
               <div className="p-6 sm:p-8">
                 <p className="text-sm font-black uppercase tracking-[0.18em] text-[#F4B400]">Plan Your Order</p>
-                <h2 className="mt-3 text-4xl font-semibold tracking-[-0.03em]">Before you checkout.</h2>
+                <h2 className="mt-3 text-4xl font-semibold">Before you checkout.</h2>
                 <div className="mt-7 grid gap-4">
                   {offers.map((offer) => (
                     <div key={offer.title} className="rounded-2xl border border-white/10 bg-white/8 p-4">
@@ -376,10 +370,10 @@ export default function Home() {
           </div>
 
           <aside className="grid gap-4">
-            <div className="rounded-[2rem] bg-[#E52B2B] p-6 text-white sm:p-8">
+            <div className="rounded-lg bg-[#E52B2B] p-6 text-white sm:p-8">
               <ChefHat size={28} aria-hidden="true" />
               <p className="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#F4B400]">Tonight's easy choice</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">Call, collect, or order online.</h2>
+              <h2 className="mt-3 text-3xl font-semibold">Call, collect, or order online.</h2>
               <p className="mt-4 text-sm leading-7 text-white/78">
                 Open Tuesday to Sunday, 5:30pm - 10:30pm. Closed Mondays except Bank Holidays.
               </p>
@@ -395,7 +389,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-black/8 bg-[#F5F5F5] p-6 sm:p-8">
+            <div className="rounded-lg border border-black/8 bg-[#F5F5F5] p-6 sm:p-8">
               <div className="flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black">
                   <Clock className="text-[#E52B2B]" size={16} aria-hidden="true" />

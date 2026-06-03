@@ -85,40 +85,41 @@ export function CookieConsentManager({ gtmId, metaPixelId }: Props) {
   }
 
   return (
-    <aside className="fixed inset-x-0 bottom-0 z-[100] border-t border-[#cbd5e1]/35 bg-[#121212]/96 p-3 text-[#F5F5F5] shadow-[0_-14px_34px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:inset-x-4 sm:bottom-4 sm:rounded-2xl sm:border">
-      <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-4">
+    <aside className="fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-[620px] rounded-xl border border-white/12 bg-[#121212]/96 p-3 text-white shadow-[0_22px_70px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:bottom-5 sm:p-4">
+      <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
         <div className="min-w-0">
-          <p className="inline-flex items-center gap-2 rounded-full border border-[#E52B2B]/35 bg-[#E52B2B]/12 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-[#F4B400]">
-            <ShieldCheck size={13} aria-hidden="true" />
-            Privacy choices
+          <p className="flex items-center gap-2 text-sm font-black text-white">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#E52B2B] text-white">
+              <ShieldCheck size={16} aria-hidden="true" />
+            </span>
+            Cookie preferences
           </p>
-          <p className="mt-2 text-sm font-semibold leading-6 text-[#F5F5F5]">
-            We use cookies to improve performance and understand how customers use the site.
-            Accepting helps us improve your ordering experience.
+          <p className="mt-2 text-xs font-medium leading-5 text-white/74 sm:text-sm">
+            We use essential cookies for ordering. With your permission, analytics
+            cookies help us improve the website.
           </p>
-          <p className="mt-1 text-xs leading-5 text-[#F5F5F5]/78">
-            You can continue with essential cookies only. See our{" "}
-            <Link href="/privacy-policy" className="font-black text-[#E52B2B] underline">
-              Privacy Policy
-            </Link>
-            .
-          </p>
+          <Link
+            href="/privacy-policy"
+            className="mt-1 inline-flex text-xs font-black text-[#F4B400] underline-offset-4 hover:underline"
+          >
+            Read privacy policy
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-2 sm:min-w-[280px]">
+        <div className="grid grid-cols-2 gap-2 sm:w-[230px] sm:grid-cols-1">
           <button
             type="button"
             onClick={() => setChoice("accepted")}
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#E52B2B] px-4 text-sm font-black text-[#121212] transition hover:bg-[#FFE7B2]"
+            className="inline-flex min-h-10 items-center justify-center rounded-lg bg-[#E52B2B] px-3 text-xs font-black text-white shadow-[0_12px_28px_rgba(229,43,43,0.24)] transition hover:bg-[#c91f1f] sm:text-sm"
           >
-            Accept & Continue
+            Accept all
           </button>
           <button
             type="button"
             onClick={() => setChoice("rejected")}
-            className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#cbd5e1] bg-transparent px-4 text-sm font-black text-[#F5F5F5] transition hover:border-[#E52B2B] hover:text-[#E52B2B]"
+            className="inline-flex min-h-10 items-center justify-center rounded-lg border border-white/16 bg-white/8 px-3 text-xs font-black text-white transition hover:border-[#F4B400] hover:text-[#F4B400] sm:text-sm"
           >
-            Reject Non-Essential
+            Essential only
           </button>
         </div>
       </div>
