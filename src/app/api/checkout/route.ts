@@ -164,7 +164,7 @@ export async function POST(request: NextRequest) {
     } else {
       const coupon = await stripe.coupons.create({
         duration: "once",
-        name: `Spice Fusion TAKEAWAY ${reward.discountPercent}% ${
+        name: `${reward.discountPercent}% ${
           orderType === "delivery" ? "delivery" : "collection"
         } discount`,
         percent_off: reward.discountPercent,
