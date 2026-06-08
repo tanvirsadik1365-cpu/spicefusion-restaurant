@@ -24,7 +24,7 @@ const terms = [
     Icon: Truck,
     title: "Collection & Delivery",
     detail:
-      "Collection is from 137 Main St, Addingham, Ilkley LS29 0LZ. Delivery is £3 within a 5-mile radius with a £15 minimum order. Orders outside 5 miles may be charged £1 per extra mile up to 7 miles maximum.",
+      "Collection is from 137 Main St, Addingham, Ilkley LS29 0LZ. Delivery is £3 within a 5-mile radius with a £20 minimum order. Orders outside 5 miles may be charged £1 per extra mile up to 7 miles maximum.",
   },
   {
     Icon: CreditCard,

@@ -1,21 +1,8 @@
 export const restaurantTimeZone = "Europe/London";
-export const openingTimeLabel = "5:30pm - 10:30pm";
+export const openingTimeLabel = "5:30pm - 10:00pm";
 
 const openMinute = 17 * 60 + 30;
-const closeMinute = 22 * 60 + 30;
-
-const defaultBankHolidayMondays = new Set([
-  "2026-04-06",
-  "2026-05-04",
-  "2026-05-25",
-  "2026-08-31",
-  "2026-12-28",
-  "2027-04-05",
-  "2027-05-03",
-  "2027-05-31",
-  "2027-08-30",
-  "2027-12-27",
-]);
+const closeMinute = 22 * 60;
 
 type ZonedParts = {
   day: number;
@@ -23,16 +10,6 @@ type ZonedParts = {
   isoDate: string;
   minute: number;
 };
-
-function getConfiguredBankHolidayMondays() {
-  const configured = process.env.BANK_HOLIDAY_MONDAYS ?? "";
-  const dates = configured
-    .split(",")
-    .map((date) => date.trim())
-    .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date));
-
-  return dates.length > 0 ? new Set(dates) : defaultBankHolidayMondays;
-}
 
 function getZonedParts(date = new Date()): ZonedParts {
   const parts = new Intl.DateTimeFormat("en-GB", {
@@ -70,7 +47,7 @@ function getZonedParts(date = new Date()): ZonedParts {
 }
 
 function isTradingDay(parts: ZonedParts) {
-  if (parts.day >= 2 && parts.day <= 6) {
+  if (parts.day >= 3 && parts.day <= 6) {
     return true;
   }
 
@@ -78,7 +55,7 @@ function isTradingDay(parts: ZonedParts) {
     return true;
   }
 
-  return parts.day === 1 && getConfiguredBankHolidayMondays().has(parts.isoDate);
+  return false;
 }
 
 export function getAutomaticOrderingWindow(date = new Date()) {

@@ -43,7 +43,7 @@ export const restaurant = {
   address: ["137 Main St", "Addingham, Ilkley LS29 0LZ", "United Kingdom"],
   location: "137 Main St, Addingham, Ilkley LS29 0LZ, United Kingdom",
   deliveryInfo:
-    "£3 delivery charge within a 5-mile radius. Minimum order £15. Up to 7 miles with +£1 per extra mile outside 5 miles.",
+    "£3 delivery charge within a 5-mile radius. Minimum order £20. Up to 7 miles with +£1 per extra mile outside 5 miles.",
   mapsUrl: "https://maps.google.com/?q=137+Main+St,+Addingham,+Ilkley+LS29+0LZ",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=137+Main+St,+Addingham,+Ilkley+LS29+0LZ&output=embed",
@@ -52,8 +52,8 @@ export const restaurant = {
   facebookUrl: "https://www.facebook.com/spicefusion.uk/",
   instagramUrl: "https://www.instagram.com/spicefusion.uk",
   hours: [
-    { days: "Tuesday - Sunday", time: "5:30pm - 10:30pm" },
-    { days: "Monday", time: "Closed (open on Bank Holiday Mondays)" },
+    { days: "Wednesday - Sunday", time: "5:30pm - 10:00pm" },
+    { days: "Monday & Tuesday", time: "Closed" },
   ],
 };
 
@@ -126,7 +126,7 @@ export const offers = [
   },
   {
     title: "Minimum Order",
-    detail: "Minimum order for delivery is £15.",
+    detail: "Minimum order for delivery is £20.",
     note: "Order rule",
   },
   {
@@ -139,13 +139,13 @@ export const offers = [
 export const diningOffer = {
   title: "Delivery Terms",
   price: "£3",
-  nonEaterPrice: "£15 min",
+  nonEaterPrice: "£20 min",
   discount: "N/A",
   capacity: "Up to 7 miles",
   drinks: "Soft drinks available",
   details: [
     "£3 delivery charge within a 5-mile radius",
-    "Minimum order £15",
+    "Minimum order £20",
     "Up to 7 miles maximum",
     "Additional £1 per mile outside 5 miles",
   ],
@@ -561,7 +561,7 @@ export const faqs = [
   {
     category: "Delivery",
     question: "What is the minimum delivery order?",
-    answer: "Minimum order for delivery is £15.",
+    answer: "Minimum order for delivery is £20.",
   },
   {
     category: "Delivery",
@@ -578,7 +578,7 @@ export const faqs = [
     category: "Hours",
     question: "What are your opening times?",
     answer:
-      "Open Tuesday to Sunday from 5:30pm to 10:30pm. Closed Mondays except Bank Holidays.",
+      "Online ordering is open Wednesday to Sunday from 5:30pm to 10:00pm. Closed Monday and Tuesday.",
   },
   {
     category: "Local SEO",

@@ -968,7 +968,7 @@ export function CartPageClient() {
                 >
                   {type === "collection"
                     ? `Pick up from ${restaurant.location}.`
-                    : "Delivery on orders £15+ within a 5-mile radius for LS29 area."}
+                    : "Delivery on orders £20+ within a 5-mile radius for LS29 area."}
                 </span>
               </button>
             );

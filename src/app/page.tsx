@@ -33,7 +33,7 @@ export const metadata: Metadata = createPageMetadata(seoPages.home);
 
 const heroStats = [
   ["£3", "Delivery within 5-mile radius"],
-  ["£15", "Minimum delivery order"],
+  ["£20", "Minimum delivery order"],
   ["7 mi", "Maximum delivery area"],
 ];
 
@@ -189,7 +189,7 @@ export default function Home() {
             </div>
             <div className="absolute -bottom-7 -left-4 rounded-lg bg-[#F4B400] p-5 text-[#121212] shadow-[0_24px_70px_rgba(0,0,0,.3)] sm:-left-8">
               <p className="text-xs font-black uppercase tracking-[0.16em]">Open tonight</p>
-              <p className="mt-1 text-xl font-semibold">5:30pm - 10:30pm</p>
+              <p className="mt-1 text-xl font-semibold">5:30pm - 10:00pm</p>
             </div>
           </aside>
         </div>
@@ -375,7 +375,7 @@ export default function Home() {
               <p className="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#F4B400]">Tonight's easy choice</p>
               <h2 className="mt-3 text-3xl font-semibold">Call, collect, or order online.</h2>
               <p className="mt-4 text-sm leading-7 text-white/78">
-                Open Tuesday to Sunday, 5:30pm - 10:30pm. Closed Mondays except Bank Holidays.
+                Order online Wednesday to Sunday, 5:30pm - 10:00pm. Closed Monday and Tuesday.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
                 <Link href="/menu" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-black text-[#121212] transition hover:bg-[#F4B400]">
@@ -393,7 +393,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black">
                   <Clock className="text-[#E52B2B]" size={16} aria-hidden="true" />
-                  Open 6 days
+                  Open 5 days
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-black">
                   <ShieldCheck className="text-[#E52B2B]" size={16} aria-hidden="true" />

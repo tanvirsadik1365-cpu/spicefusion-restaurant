@@ -157,7 +157,6 @@ export function createGlobalRestaurantJsonLd() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: [
-          "Tuesday",
           "Wednesday",
           "Thursday",
           "Friday",
@@ -165,7 +164,7 @@ export function createGlobalRestaurantJsonLd() {
           "Sunday",
         ],
         opens: "17:30",
-        closes: "22:30",
+        closes: "22:00",
       },
     ],
     hasMenu: absoluteUrl("/menu"),

@@ -33,7 +33,7 @@ export type ActiveReward = {
   requiresSideDish: boolean;
 };
 
-export const DELIVERY_MINIMUM = 15;
+export const DELIVERY_MINIMUM = 20;
 export const DELIVERY_BASE_FEE = 3;
 export const DELIVERY_POSTCODE_PREFIXES = ["LS29"] as const;
 
@@ -135,7 +135,7 @@ export function getActiveReward(subtotal: number, orderType: OrderType): ActiveR
     detail:
       orderType === "collection"
         ? "Collection orders are available directly from Spice Fusion."
-        : "Delivery is available from £15 minimum. £3 within a 5-mile radius, then +£1 per mile (up to 7 miles).",
+        : "Delivery is available from £20 minimum. £3 within a 5-mile radius, then +£1 per mile (up to 7 miles).",
     requiresSideDish: false,
   };
 }
