@@ -22,6 +22,7 @@ import { useCart } from "@/components/CartProvider";
 import { StoreStatusNotice } from "@/components/StoreStatusNotice";
 import { useStoreStatus } from "@/components/useStoreStatus";
 import { OPEN_OFFER_POPUP_EVENT } from "@/components/OfferPopup";
+import { trackEvent } from "@/lib/analytics";
 import {
   DELIVERY_MINIMUM,
   formatCurrency,
@@ -392,6 +393,21 @@ export function MenuOrderClient() {
     return () => observer.disconnect();
   }, [displayedSections]);
 
+  useEffect(() => {
+    if (normalizedSearch.length < 2) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      trackEvent("menu_search", {
+        search_term: normalizedSearch,
+        results_count: displayedItemCount,
+      });
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [displayedItemCount, normalizedSearch]);
+
   function setSectionRef(id: string) {
     return (element: HTMLElement | null) => {
       sectionRefs.current[id] = element;
@@ -431,6 +447,7 @@ export function MenuOrderClient() {
       return;
     }
 
+    trackEvent("select_menu_category", { menu_category: categoryId });
     setActiveCategory(categoryId);
 
     if (clearSearch) {
@@ -455,6 +472,11 @@ export function MenuOrderClient() {
   }
 
   function openOfferPopup() {
+    trackEvent("open_offer_popup", {
+      order_type: orderType,
+      value: total,
+      currency: "GBP",
+    });
     window.dispatchEvent(new Event(OPEN_OFFER_POPUP_EVENT));
   }
 

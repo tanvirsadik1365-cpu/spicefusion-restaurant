@@ -12,7 +12,14 @@ import {
   XCircle,
 } from "lucide-react";
 import type { OrderTrackingResult } from "@/lib/order-tracking";
-import { trackEvent, trackMetaEvent } from "@/lib/analytics";
+import {
+  LAST_ORDER_TRACKING_KEY,
+  LEGACY_LAST_ORDER_TRACKING_KEY,
+  readOrderAnalyticsSnapshot,
+  trackEcommerceEvent,
+  trackEvent,
+  trackMetaEvent,
+} from "@/lib/analytics";
 
 type LookupDetails = {
   contact: string;
@@ -36,7 +43,6 @@ type CheckoutSyncResponse = {
 
 type PaymentSyncState = "idle" | "checking" | "confirmed" | "pending" | "error";
 
-const lastOrderTrackingKey = "spice-fusion-last-order-tracking-v1";
 const terminalStatuses = new Set(["completed", "cancelled"]);
 
 const progressSteps = [
@@ -52,7 +58,9 @@ function clean(value: string | null) {
 
 function readStoredTrackingLookup(): StoredTrackingLookup | null {
   try {
-    const stored = window.localStorage.getItem(lastOrderTrackingKey);
+    const stored =
+      window.localStorage.getItem(LAST_ORDER_TRACKING_KEY) ??
+      window.localStorage.getItem(LEGACY_LAST_ORDER_TRACKING_KEY);
 
     if (!stored) {
       return null;
@@ -293,14 +301,30 @@ export function CheckoutSuccessTrackingClient() {
       return;
     }
 
-    trackEvent("purchase", {
-      order_id: tracking.orderNumber,
-      order_status: tracking.status,
-      payment_method: tracking.paymentStatus ?? "unknown",
-      order_type: tracking.orderType,
-      currency: "GBP",
-      value: tracking.totalPence / 100,
-    });
+    const orderSnapshot = readOrderAnalyticsSnapshot(tracking.orderNumber);
+
+    if (orderSnapshot) {
+      trackEcommerceEvent("purchase", {
+        affiliation: "Spice Fusion TAKEAWAY website",
+        currency: orderSnapshot.currency,
+        items: orderSnapshot.items,
+        order_type: orderSnapshot.order_type,
+        payment_type: orderSnapshot.payment_method,
+        shipping: orderSnapshot.shipping,
+        tax: orderSnapshot.tax,
+        transaction_id: orderSnapshot.order_id,
+        value: orderSnapshot.value,
+      });
+    } else {
+      trackEvent("purchase", {
+        order_id: tracking.orderNumber,
+        order_status: tracking.status,
+        payment_method: tracking.paymentStatus ?? "unknown",
+        order_type: tracking.orderType,
+        currency: "GBP",
+        value: tracking.totalPence / 100,
+      });
+    }
 
     trackMetaEvent("Purchase", {
       currency: "GBP",

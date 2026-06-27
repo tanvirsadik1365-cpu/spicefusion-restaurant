@@ -9,7 +9,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { trackEvent, trackMetaEvent } from "@/lib/analytics";
+import {
+  getItemsValue,
+  toEcommerceItems,
+  trackEcommerceEvent,
+  trackEvent,
+  trackMetaEvent,
+} from "@/lib/analytics";
 import { getCatalogMap, type CartItem, type OrderType } from "@/lib/order";
 
 type CartContextValue = {
@@ -108,19 +114,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const addItem = useCallback((item: Omit<CartItem, "quantity">) => {
-    trackEvent("add_to_cart", {
-      item_id: item.id,
-      item_name: item.name,
-      item_category: item.category,
-      value: item.unitPrice,
+    const ecommerceItem = { ...item, quantity: 1 };
+
+    trackEcommerceEvent("add_to_cart", {
       currency: "GBP",
+      items: toEcommerceItems([ecommerceItem]),
+      value: item.unitPrice,
     });
     trackMetaEvent("AddToCart", {
-      content_ids: item.id,
-      content_name: item.name,
       content_category: item.category,
-      value: item.unitPrice,
+      content_ids: [item.id],
+      content_name: item.name,
       currency: "GBP",
+      value: item.unitPrice,
     });
 
     setCart((current) => {
@@ -144,6 +150,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return current;
       }
 
+      trackEcommerceEvent("remove_from_cart", {
+        currency: "GBP",
+        items: toEcommerceItems([{ ...existing, quantity: 1 }]),
+        value: existing.unitPrice,
+      });
+
       if (existing.quantity <= 1) {
         const next = { ...current };
         delete next[id];
@@ -162,14 +174,36 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const removeItem = useCallback((id: string) => {
     setCart((current) => {
+      const existing = current[id];
       const next = { ...current };
       delete next[id];
+
+      if (existing) {
+        trackEcommerceEvent("remove_from_cart", {
+          currency: "GBP",
+          items: toEcommerceItems([existing]),
+          value: existing.unitPrice * existing.quantity,
+        });
+      }
+
       return next;
     });
   }, []);
 
   const clearCart = useCallback(() => {
-    setCart({});
+    setCart((current) => {
+      const items = Object.values(current);
+
+      if (items.length > 0) {
+        trackEcommerceEvent("clear_cart", {
+          currency: "GBP",
+          items: toEcommerceItems(items),
+          value: getItemsValue(items),
+        });
+      }
+
+      return {};
+    });
   }, []);
 
   const getQuantity = useCallback(
@@ -178,6 +212,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 
   const setOrderType = useCallback((nextOrderType: OrderType) => {
+    trackEvent("select_order_type", { order_type: nextOrderType });
     setOrderTypeState(nextOrderType);
   }, []);
 

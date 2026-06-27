@@ -17,8 +17,8 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 
-const googleTagManagerId = "GTM-546CFWHS";
-const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
+const googleTagManagerId =
+  process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-546CFWHS";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -226,7 +226,7 @@ export default function RootLayout({
               }}
             />
           ) : null}
-          <CookieConsentManager gtmId={googleTagManagerId} metaPixelId={metaPixelId} />
+          <CookieConsentManager gtmId={googleTagManagerId} />
           <SeoTracking />
           <SiteHeader />
           <div className="flex-1">{children}</div>

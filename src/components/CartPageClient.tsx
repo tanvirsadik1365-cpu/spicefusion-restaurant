@@ -45,7 +45,15 @@ import {
 import { restaurant } from "@/lib/restaurant";
 import { StoreStatusNotice } from "@/components/StoreStatusNotice";
 import { useStoreStatus } from "@/components/useStoreStatus";
-import { trackEvent, trackMetaEvent } from "@/lib/analytics";
+import {
+  LAST_ORDER_TRACKING_KEY,
+  getItemsValue,
+  saveOrderAnalyticsSnapshot,
+  toEcommerceItems,
+  trackEcommerceEvent,
+  trackEvent,
+  trackMetaEvent,
+} from "@/lib/analytics";
 import {
   getSupabaseBrowser,
   isSupabaseBrowserConfigured,
@@ -87,7 +95,6 @@ const checkoutSecondaryButtonClass =
   "inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 text-sm font-black text-white transition hover:border-[#E52B2B]/55 hover:text-[#F4B400] disabled:cursor-not-allowed disabled:opacity-40";
 const checkoutPrimaryButtonClass =
   "inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#E52B2B] px-6 text-sm font-black text-white shadow-lg shadow-[#E52B2B]/20 transition hover:bg-white hover:text-[#121212] disabled:cursor-not-allowed disabled:bg-white/18 disabled:text-white/45 disabled:shadow-none";
-const lastOrderTrackingKey = "Spice Fusion TAKEAWAY-last-order-tracking-v1";
 
 function getOrigin() {
   return window.location.origin;
@@ -229,6 +236,32 @@ export function CartPageClient() {
       setActiveStep("food");
     }
   }, [activeStep, hasDishes]);
+
+  useEffect(() => {
+    if (!hasDishes) {
+      return;
+    }
+
+    trackEcommerceEvent("view_cart", {
+      currency: "GBP",
+      items: toEcommerceItems(cartItems),
+      value: getItemsValue(cartItems),
+    });
+  }, [cartItems, hasDishes]);
+
+  useEffect(() => {
+    if (!hasDishes) {
+      return;
+    }
+
+    trackEvent("checkout_step_view", {
+      checkout_step: activeStep,
+      order_type: orderType,
+      value: total,
+      currency: "GBP",
+      items_count: itemCount,
+    });
+  }, [activeStep, hasDishes, itemCount, orderType, total]);
 
   useEffect(() => {
     if (!isSupabaseBrowserConfigured()) {
@@ -444,13 +477,27 @@ export function CartPageClient() {
     }
 
     window.localStorage.setItem(
-      lastOrderTrackingKey,
+      LAST_ORDER_TRACKING_KEY,
       JSON.stringify({
         contact,
         orderNumber,
         savedAt: new Date().toISOString(),
       }),
     );
+  }
+
+  function saveCheckoutAnalyticsSnapshot(orderNumber: string, paymentMethod: PaymentChoice) {
+    saveOrderAnalyticsSnapshot({
+      currency: "GBP",
+      item_count: itemCount,
+      items: toEcommerceItems(cartItems),
+      order_id: orderNumber,
+      order_type: orderType,
+      payment_method: paymentMethod,
+      shipping: deliveryFee,
+      tax: 0,
+      value: total,
+    });
   }
 
   function isStepUnlocked(stepId: CheckoutStep) {
@@ -505,6 +552,12 @@ export function CartPageClient() {
       value: total,
       items_count: itemCount,
     });
+    trackEcommerceEvent("add_payment_info", {
+      currency: "GBP",
+      items: toEcommerceItems(cartItems),
+      payment_type: "online",
+      value: total,
+    });
     trackMetaEvent("InitiateCheckout", {
       currency: "GBP",
       value: total,
@@ -531,6 +584,7 @@ export function CartPageClient() {
 
       saveCustomerProfileLocal();
       saveLastOrderTracking(payload.orderId);
+      saveCheckoutAnalyticsSnapshot(payload.orderId, "online");
       window.location.href = payload.url;
     } catch (error) {
       setCheckoutError(
@@ -555,6 +609,12 @@ export function CartPageClient() {
       currency: "GBP",
       value: total,
       items_count: itemCount,
+    });
+    trackEcommerceEvent("add_payment_info", {
+      currency: "GBP",
+      items: toEcommerceItems(cartItems),
+      payment_type: "cash",
+      value: total,
     });
     trackMetaEvent("InitiateCheckout", {
       currency: "GBP",
@@ -581,6 +641,7 @@ export function CartPageClient() {
 
       saveCustomerProfileLocal();
       saveLastOrderTracking(payload.orderId);
+      saveCheckoutAnalyticsSnapshot(payload.orderId, "cash");
       clearCart();
       window.location.href = `/checkout/success?payment=cash&order_id=${encodeURIComponent(
         payload.orderId,

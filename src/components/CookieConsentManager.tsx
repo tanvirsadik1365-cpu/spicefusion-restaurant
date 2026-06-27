@@ -12,7 +12,6 @@ import { trackEvent } from "@/lib/analytics";
 
 type Props = {
   gtmId: string;
-  metaPixelId?: string;
 };
 
 function loadGtm(gtmId: string) {
@@ -34,23 +33,7 @@ function loadGtm(gtmId: string) {
   document.head.appendChild(script);
 }
 
-function loadMetaPixel(metaPixelId?: string) {
-  if (!metaPixelId || document.getElementById("meta-pixel-consent-script")) {
-    return;
-  }
-
-  const script = document.createElement("script");
-  script.id = "meta-pixel-consent-script";
-  script.async = true;
-  script.innerHTML = `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');fbq('init','${metaPixelId}');`;
-  document.head.appendChild(script);
-}
-
-export function CookieConsentManager({ gtmId, metaPixelId }: Props) {
+export function CookieConsentManager({ gtmId }: Props) {
   const [consent, setConsent] = useState<CookieConsent | null>(null);
   const [ready, setReady] = useState(false);
 
@@ -67,9 +50,13 @@ export function CookieConsentManager({ gtmId, metaPixelId }: Props) {
     }
 
     loadGtm(gtmId);
-    loadMetaPixel(metaPixelId);
     trackEvent("cookie_consent_accepted");
-  }, [consent, gtmId, metaPixelId]);
+    trackEvent("page_view", {
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+      page_title: document.title,
+    });
+  }, [consent, gtmId]);
 
   function setChoice(value: CookieConsent) {
     window.localStorage.setItem(COOKIE_CONSENT_KEY, value);
