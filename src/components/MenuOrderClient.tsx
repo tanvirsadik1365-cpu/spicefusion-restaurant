@@ -24,6 +24,7 @@ import { useStoreStatus } from "@/components/useStoreStatus";
 import { OPEN_OFFER_POPUP_EVENT } from "@/components/OfferPopup";
 import { trackEvent } from "@/lib/analytics";
 import {
+  COLLECTION_MINIMUM,
   DELIVERY_MINIMUM,
   formatCurrency,
   getActiveReward,
@@ -235,11 +236,15 @@ function getRewardLabel(subtotal: number, orderType: OrderType) {
       : `Delivery from ${formatCurrency(DELIVERY_MINIMUM)} plus £3 charge`;
   }
 
-  if (subtotal > 0) {
-    return "15% collection offer active";
+  if (subtotal >= COLLECTION_MINIMUM) {
+    return "Spend £20+ for 15% off";
   }
 
-  return "Add a dish to unlock 15% off";
+  if (subtotal > 0) {
+    return "Spend £20+ for 15% off";
+  }
+
+  return "Spend £20+ for 15% off";
 }
 
 function getCompactRewardTitle(reward: ActiveReward) {
@@ -555,10 +560,7 @@ export function MenuOrderClient() {
       {
         id: "collection" as const,
         title: "Collect",
-        helper:
-          subtotal > 0
-            ? "15% collection offer active"
-            : "Add a dish for 15% off",
+        helper: "Spend £20+ for 15% off",
       },
       {
         id: "delivery" as const,

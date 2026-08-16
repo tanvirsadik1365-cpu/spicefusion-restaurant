@@ -33,6 +33,7 @@ export type ActiveReward = {
   requiresSideDish: boolean;
 };
 
+export const COLLECTION_MINIMUM = 20;
 export const DELIVERY_MINIMUM = 20;
 export const DELIVERY_BASE_FEE = 3;
 export const DELIVERY_POSTCODE_PREFIXES = ["LS29"] as const;
@@ -108,7 +109,7 @@ export function getSubtotal(items: CartItem[]) {
 }
 
 export function getActiveReward(subtotal: number, orderType: OrderType): ActiveReward {
-  if (subtotal > 0 && orderType === "collection") {
+  if (subtotal >= COLLECTION_MINIMUM && orderType === "collection") {
     return {
       type: "direct-discount",
       discountPercent: 15,
@@ -134,7 +135,7 @@ export function getActiveReward(subtotal: number, orderType: OrderType): ActiveR
     title: "No reward yet",
     detail:
       orderType === "collection"
-        ? "Collection orders are available directly from Spice Fusion."
+        ? "Minimum spend £20 and unlock 15% OFF collection offer."
         : "Delivery is available from £20 minimum. £3 within a 5-mile radius, then +£1 per mile (up to 7 miles).",
     requiresSideDish: false,
   };

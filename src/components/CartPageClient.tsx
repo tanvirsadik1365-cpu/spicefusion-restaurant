@@ -29,6 +29,7 @@ import {
 import { GoogleMark } from "@/components/GoogleMark";
 import { useCart } from "@/components/CartProvider";
 import {
+  COLLECTION_MINIMUM,
   DELIVERY_MINIMUM,
   formatCurrency,
   formatPostcode,
@@ -686,10 +687,21 @@ export function CartPageClient() {
       };
     }
 
+    if (orderType === "collection" && subtotal > 0 && subtotal < COLLECTION_MINIMUM) {
+      return {
+        title: "Almost ready for collection",
+        detail: `Add ${formatCurrency(
+          COLLECTION_MINIMUM - subtotal,
+        )} more to unlock the 15% collection discount.`,
+        action: "Add dishes",
+        href: "/menu",
+      };
+    }
+
     if (subtotal <= 0) {
       return {
         title: "Unlock Spice Fusion TAKEAWAY's collection offer",
-        detail: "Add any dish to apply the 15% collection discount.",
+        detail: `Spend ${formatCurrency(COLLECTION_MINIMUM)}+ to apply the 15% collection discount.`,
         action: "Add dishes",
         href: "/menu",
       };
